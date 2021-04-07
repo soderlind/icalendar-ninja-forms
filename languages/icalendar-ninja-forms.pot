@@ -1,0 +1,159 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Ninja Forms - iCalendar\n"
+"POT-Creation-Date: 2021-04-08 01:18+0200\n"
+"PO-Revision-Date: 2021-04-08 01:18+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: include/config/iCalendarConfig.php:26
+msgid "Event Date"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:34
+msgid "Date"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:35
+msgid "YYYY-MM-DD"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:38
+msgid "Add event date in the date format YYYY-MM-DD, eg 2021-03-20"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:45
+msgid "Start"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:46 include/config/iCalendarConfig.php:56
+msgid "HH:MM"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:48 include/config/iCalendarConfig.php:58
+msgid "Add time in the time format HH:MM, eg 14:10"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:55
+msgid "End"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:66
+msgid "Event Information"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:73
+msgid "Event title"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:76
+msgid "Append the event URL to tne calendar"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:81
+msgid "Add Message"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:89
+msgid "Message"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:101
+msgid "Event URL"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:108
+msgid "Append URL to event page"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:112
+msgid "Append the event URL to the calendar"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:120
+msgid "Organizer email"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:131
+msgid "iCAL Link text"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:132
+msgid "Add the event to your calendar"
+msgstr ""
+
+#: include/config/iCalendarConfig.php:134
+msgid "Link text to iCAL for this event."
+msgstr ""
+
+#: src/Action.php:80 src/Tags.php:69
+msgid "iCalendar"
+msgstr ""
+
+#: src/Action.php:185
+msgid "Event page"
+msgstr ""
+
+#: src/Action.php:186
+msgid "Select Post"
+msgstr ""
+
+#: src/Action.php:191
+msgid "Select the page that describe the event"
+msgstr ""
+
+#: src/Action.php:217
+msgid "Invalid date format"
+msgstr ""
+
+#: src/Action.php:218
+msgid "Invalid time format"
+msgstr ""
+
+#: src/Permalink.php:113
+msgid "More information at:"
+msgstr ""
+
+#: src/Tags.php:74
+msgid "iCAL"
+msgstr ""
+
+#: src/Tags.php:80
+msgid "iCAL URL"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Ninja Forms - iCalendar"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/soderlind/icalendar-ninja-forms"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add an Event to your Ninja Forms."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Per Søderlind"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://soderlind.no"
+msgstr ""
