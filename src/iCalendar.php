@@ -38,12 +38,6 @@ final class iCalendar {
 	 */
 	public static function instance() : object {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof iCalendar ) ) {
-			add_action(
-				'init',
-				function() : void {
-					load_plugin_textdomain( 'date-range-ninja-forms', false, \plugin_dir_path( ICALENDAR_FILE ) . 'languages' );
-				}
-			);
 			self::$instance = new iCalendar();
 
 			self::$instance->objects['tags']     = new Tags();

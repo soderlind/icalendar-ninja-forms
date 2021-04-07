@@ -32,6 +32,12 @@ const ICALENDAR_VERSION = '0.0.1';
 
 require_once \plugin_dir_path( ICALENDAR_FILE ) . 'vendor/autoload.php';
 
+add_action(
+	'init',
+	function() : void {
+		load_plugin_textdomain( 'icalendar-ninja-forms', false, \plugin_dir_path( ICALENDAR_FILE ) . 'languages' );
+	}
+);
 /**
  * Load iCalendar.
  *
