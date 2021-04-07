@@ -2,7 +2,7 @@
 
 ## Description
 
-Add a iCalendar to your Ninja Forms.
+Add an iCalendar to your Ninja Forms.
 
 
 ## Installation
