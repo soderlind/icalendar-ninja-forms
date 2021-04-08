@@ -31,6 +31,10 @@ You know the drill:
 
 <img src="assets/add-merge-tag.gif" />
 
+### Email with iCalendar link
+
+<img src="assets/email.png" />
+
 ### Example Calendar.ics:
 
 ```
