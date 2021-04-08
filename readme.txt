@@ -30,7 +30,7 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
-= 0.0.1 =
+= 1.0.0 =
 
 * Initial release.
 
