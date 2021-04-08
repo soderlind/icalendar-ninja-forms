@@ -5,14 +5,35 @@
 Add an iCalendar to your Ninja Forms.
 
 
+
 ## Installation
+
+Prerequisite: [Ninja Forms](https://wordpress.org/plugins/ninja-forms/)
 
 1. Upload the plugin files to the `/wp-content/plugins/icalendar-ninja-forms` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use Ninja Forms to add the iCalendar.
 
 
+## Use
 
+### Per event form, add the action:
+
+<img src="assets/add-icalendar.gif" />
+
+### Add event date etc:
+
+<img src="assets/icalendar-event.png" />
+
+### Add link to Success Message, Email Confirmation etc:
+
+<img src="assets/add-merge-tag.gif" />
+
+## Todo
+
+- In the iCalendard action, add a Calendar to select time and date.
+
+## Changelog
 
 ### 0.0.1
 
