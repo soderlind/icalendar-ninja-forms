@@ -71,13 +71,13 @@ class Tags {
 					'icalendar_link' => [
 						'id'       => 'link',
 						'tag'      => '{ical:link}',
-						'label'    => esc_html__( 'iCAL', 'ninja_forms' ),
+						'label'    => esc_html__( 'Link', 'icalendar-ninja-forms' ),
 						'callback' => 'ical_link',
 					],
 					'icalendar_url'  => [
 						'id'       => 'url',
 						'tag'      => '{ical:url}',
-						'label'    => esc_html__( 'iCAL URL', 'ninja_forms' ),
+						'label'    => esc_html__( 'URL', 'icalendar-ninja-forms' ),
 						'callback' => 'ical_url',
 					],
 				];
