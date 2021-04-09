@@ -57,9 +57,13 @@ END:VCALENDAR
 
 ## Todo
 
-- Select event date and time using a calendar.
+- Validate settings
 
 ## Changelog
+
+### 1.1.0
+
+* Add date and time picker
 
 ### 1.0.0
 

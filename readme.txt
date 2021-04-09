@@ -30,6 +30,10 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.1.0 =
+
+* Add date and time picker
+
 = 1.0.0 =
 
 * Initial release.

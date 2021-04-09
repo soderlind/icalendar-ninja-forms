@@ -2,76 +2,55 @@ document.addEventListener(
 	"DOMContentLoaded",
 	() => {
 		const nfRadio = Backbone.Radio;
-		const simpleEventDateChannel = nfRadio.channel(
-			"actionSetting-icalendar_date",
+
+		const iCalendarDateSettingChannel = nfRadio.channel(
+			"setting-icalendar_date",
 		);
-		const simpleEventTimeStartChannel = nfRadio.channel(
-			"actionSetting-icalendar_time_start",
+		const iCalendarTimeStartSettingChannel = nfRadio.channel(
+			"setting-icalendar_time_start",
 		);
-		const simpleEventTimeEndChannel = nfRadio.channel(
-			"actionSetting-icalendar_time_end",
+		const iCalendarTimeEndSettingChannel = nfRadio.channel(
+			"setting-icalendar_time_end",
 		);
 
-		const SimpleEventsSettings = class extends Marionette.Object {
+		const iCalendarsSettings = class extends Marionette.Object {
+
+			dateStyle = {
+				'background': '#f9f9f9',
+				'border': '0',
+				'marginTop': '7px',
+				'padding': '12px 15px',
+				'width': '100%',
+				'height': '41px',
+			};
 			/**
 			 * initialize()
 			 *
 			 */
 			initialize() {
-				this.listenTo(simpleEventDateChannel, "update:setting", this.eventDate);
-				this.listenTo(simpleEventTimeStartChannel, "update:setting", this.timeStart);
-				this.listenTo(simpleEventTimeEndChannel, "update:setting", this.timeEnd);
+				this.listenTo(iCalendarDateSettingChannel, "render:setting", this.renderDate);
+				this.listenTo(iCalendarTimeStartSettingChannel, "render:setting", this.renderTime);
+				this.listenTo(iCalendarTimeEndSettingChannel, "render:setting", this.renderTime);
 			}
 
-			eventDate(dataModel, settingModel) {
-				if ("undefined" === typeof settingModel) {
-					return;
-				}
-				const value = dataModel.get("icalendar_date").trim();
+			renderDate(settingModel, dataModel, view) {
+				const element = view.el.getElementsByClassName("setting")[0];
+				element.attributes["type"].value = "date";
+				element.attributes["pattern"] = "\d{4}-\d{2}-\d{2}";
 
-				if (value && !this.isValidDateFormat(value)) {
-					return settingModel.set("warning", icalnfi18n.errorInvalidDateFormat);
-				}
-
-				return settingModel.set("warning", false);
+				Object.assign(element.style, this.dateStyle );
 			}
 
-			timeStart(dataModel, settingModel) {
-				if ("undefined" === typeof settingModel) {
-					return;
-				}
+			renderTime(settingModel, dataModel, view) {
+				const element = view.el.getElementsByClassName("setting")[0];
+				element.attributes["type"].value = "time";
+				element.attributes["pattern"] = "\d{2}:\d{2}";
 
-				const value = dataModel.get("icalendar_time_start").trim();
-
-				if (value && !this.isValidTimeFormat(value)) {
-					return settingModel.set("warning", icalnfi18n.errorInvalidTimeFormat);
-				}
-
-				return settingModel.set("warning", false);
+				Object.assign(element.style, this.dateStyle );
 			}
 
-			timeEnd(dataModel, settingModel) {
-				if ("undefined" === typeof settingModel) {
-					return;
-				}
-
-				const value = dataModel.get("icalendar_time_end").trim();
-
-				if (value && !this.isValidTimeFormat(value)) {
-					return settingModel.set("warning", icalnfi18n.errorInvalidTimeFormat);
-				}
-
-				return settingModel.set("warning", false);
-			}
-
-			isValidDateFormat(eventDate) {
-				return /^\d{4}-\d{2}-\d{2}$/.test(eventDate);
-			}
-			isValidTimeFormat(eventTime) {
-				return /^\d{2}:\d{2}$/.test(eventTime);
-			}
 		};
 
-		new SimpleEventsSettings();
+		new iCalendarsSettings();
 	},
 );
