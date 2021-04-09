@@ -28,24 +28,32 @@ document.addEventListener(
 			 *
 			 */
 			initialize() {
-				this.listenTo(iCalendarDateSettingChannel, "render:setting", this.renderDate);
-				this.listenTo(iCalendarTimeStartSettingChannel, "render:setting", this.renderTime);
-				this.listenTo(iCalendarTimeEndSettingChannel, "render:setting", this.renderTime);
+				this.listenTo(iCalendarDateSettingChannel, "render:setting", this.renderDefaultDate);
+				this.listenTo(iCalendarTimeStartSettingChannel, "render:setting", this.renderDefaultTime);
+				this.listenTo(iCalendarTimeEndSettingChannel, "render:setting", this.renderDefaultTime);
 			}
 
-			renderDate(settingModel, dataModel, view) {
+			renderDefaultDate(settingModel, dataModel, view) {
 				const element = view.el.getElementsByClassName("setting")[0];
 				element.attributes["type"].value = "date";
 				element.attributes["pattern"] = "\d{4}-\d{2}-\d{2}";
-
+				if (!element.value) {
+					element.valueAsDate = new Date()
+				}
 				Object.assign(element.style, this.dateStyle );
 			}
 
-			renderTime(settingModel, dataModel, view) {
+			renderDefaultTime(settingModel, dataModel, view) {
 				const element = view.el.getElementsByClassName("setting")[0];
 				element.attributes["type"].value = "time";
 				element.attributes["pattern"] = "\d{2}:\d{2}";
 
+				if (!element.value) {
+					element.value = new Intl.DateTimeFormat('default', { // To specify options without a locale, use 'default' as a locale.
+						hour: '2-digit',
+						minute: '2-digit',
+					}).format();
+				}
 				Object.assign(element.style, this.dateStyle );
 			}
 

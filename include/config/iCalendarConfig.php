@@ -34,7 +34,6 @@ return apply_filters(
 					'label'          => __( 'Date', 'icalendar-ninja-forms' ),
 					'placeholder'    => __( 'YYYY-MM-DD', 'icalendar-ninja-forms' ),
 					'width'          => 'one-third',
-					'value'          => wp_date( 'Y-m-d' ),
 					'help'           => __( 'Add event date in the date format YYYY-MM-DD, eg 2021-03-20', 'icalendar-ninja-forms' ),
 					'use_merge_tags' => false,
 				],
