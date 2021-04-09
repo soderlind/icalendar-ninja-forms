@@ -19,11 +19,7 @@ document.addEventListener(
 			 */
 			initialize() {
 				this.listenTo(simpleEventDateChannel, "update:setting", this.eventDate);
-				this.listenTo(
-					simpleEventTimeStartChannel,
-					"update:setting",
-					this.timeStart,
-				);
+				this.listenTo(simpleEventTimeStartChannel, "update:setting", this.timeStart);
 				this.listenTo(simpleEventTimeEndChannel, "update:setting", this.timeEnd);
 			}
 
@@ -34,8 +30,6 @@ document.addEventListener(
 				const value = dataModel.get("icalendar_date").trim();
 
 				if (value && !this.isValidDateFormat(value)) {
-					// dataModel.set('icalendar_date', '');
-					dataModel.set(settingModel.get("name"), "");
 					return settingModel.set("warning", icalnfi18n.errorInvalidDateFormat);
 				}
 

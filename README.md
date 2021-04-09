@@ -35,7 +35,7 @@ You know the drill:
 
 <img src="assets/email.png" />
 
-### Example Calendar.ics:
+### Example calendar.ics:
 
 ```
 BEGIN:VCALENDAR
@@ -57,7 +57,7 @@ END:VCALENDAR
 
 ## Todo
 
-- In the iCalendar action, add a Calendar to select time and date.
+- Select event date and time using a calendar.
 
 ## Changelog
 
