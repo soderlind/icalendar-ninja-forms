@@ -30,6 +30,10 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Add "now" as default date and time.
+
 = 1.1.0 =
 
 * Add date and time picker
