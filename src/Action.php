@@ -210,13 +210,5 @@ class Action {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'icalendar-action', plugin_dir_url( ICALENDAR_FILE ) . 'include/js/action.js', [], ICALENDAR_VERSION, true );
-		wp_localize_script(
-			'icalendar-action',
-			'icalnfi18n',
-			[
-				'errorInvalidDateFormat' => esc_html__( 'Invalid date format', 'icalendar-ninja-forms' ),
-				'errorInvalidTimeFormat' => esc_html__( 'Invalid time format', 'icalendar-ninja-forms' ),
-			]
-		);
 	}
 }
