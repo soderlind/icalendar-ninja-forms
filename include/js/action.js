@@ -15,7 +15,7 @@ document.addEventListener(
 
 		const iCalendarsSettings = class extends Marionette.Object {
 
-			dateStyle = {
+			nfTextboxStyle = {
 				'background': '#f9f9f9',
 				'border': '0',
 				'marginTop': '7px',
@@ -40,7 +40,7 @@ document.addEventListener(
 				if (!element.value) {
 					element.valueAsDate = new Date()
 				}
-				Object.assign(element.style, this.dateStyle );
+				Object.assign(element.style, this.nfTextboxStyle );
 			}
 
 			renderDefaultTime(settingModel, dataModel, view) {
@@ -54,7 +54,7 @@ document.addEventListener(
 						minute: '2-digit',
 					}).format();
 				}
-				Object.assign(element.style, this.dateStyle );
+				Object.assign(element.style, this.nfTextboxStyle );
 			}
 
 		};
