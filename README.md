@@ -66,6 +66,11 @@ END:VCALENDAR
 
 ## Changelog
 
+### 1.1.2
+
+- Remove wp_localize_script
+- Rename style object
+
 ### 1.1.1
 
 - Add "now" as default date and time.

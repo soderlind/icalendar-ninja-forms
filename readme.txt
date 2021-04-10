@@ -2,8 +2,8 @@
 Contributors: PerS
 Donate link: https://soderlind.no/donate/
 Tags: date
-Requires at least: 4.9.8
-Tested up to: 5.4
+Requires at least: 5.4
+Tested up to: 5.7
 Stable tag: trunk
 Requires PHP: 7.2
 License: GPLv2 or later
@@ -29,6 +29,11 @@ Add a iCalendar to your Ninja Forms.
 3. iCalendar at the front-end.
 
 == Changelog ==
+
+= 1.1.2 =
+
+* Remove wp_localize_script
+* Rename style object
 
 = 1.1.1 =
 
