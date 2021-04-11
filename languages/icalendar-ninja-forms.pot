@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Ninja Forms - iCalendar\n"
-"POT-Creation-Date: 2021-04-08 09:04+0200\n"
+"POT-Creation-Date: 2021-04-11 15:06+0200\n"
 "PO-Revision-Date: 2021-04-08 01:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -34,71 +34,71 @@ msgstr ""
 msgid "YYYY-MM-DD"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:38
+#: include/config/iCalendarConfig.php:37
 msgid "Add event date in the date format YYYY-MM-DD, eg 2021-03-20"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:45
+#: include/config/iCalendarConfig.php:44
 msgid "Start"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:46 include/config/iCalendarConfig.php:56
+#: include/config/iCalendarConfig.php:45 include/config/iCalendarConfig.php:55
 msgid "HH:MM"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:48 include/config/iCalendarConfig.php:58
+#: include/config/iCalendarConfig.php:47 include/config/iCalendarConfig.php:57
 msgid "Add time in the time format HH:MM, eg 14:10"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:55
+#: include/config/iCalendarConfig.php:54
 msgid "End"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:66
+#: include/config/iCalendarConfig.php:65
 msgid "Event Information"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:73
+#: include/config/iCalendarConfig.php:72
 msgid "Event title"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:76
+#: include/config/iCalendarConfig.php:75
 msgid "Append the event URL to tne calendar"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:81
+#: include/config/iCalendarConfig.php:80
 msgid "Add Message"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:89
+#: include/config/iCalendarConfig.php:88
 msgid "Message"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:101
+#: include/config/iCalendarConfig.php:100
 msgid "Event URL"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:108
+#: include/config/iCalendarConfig.php:107
 msgid "Append URL to event page"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:112
+#: include/config/iCalendarConfig.php:111
 msgid "Append the event URL to the calendar"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:120
+#: include/config/iCalendarConfig.php:119
 msgid "Organizer email"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:131
+#: include/config/iCalendarConfig.php:130
 msgid "iCAL Link text"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:132
+#: include/config/iCalendarConfig.php:131
 msgid "Add the event to your calendar"
 msgstr ""
 
-#: include/config/iCalendarConfig.php:134
+#: include/config/iCalendarConfig.php:133
 msgid "Link text to iCAL for this event."
 msgstr ""
 
@@ -116,14 +116,6 @@ msgstr ""
 
 #: src/Action.php:191
 msgid "Select the page that describe the event"
-msgstr ""
-
-#: src/Action.php:217
-msgid "Invalid date format"
-msgstr ""
-
-#: src/Action.php:218
-msgid "Invalid time format"
 msgstr ""
 
 #: src/Permalink.php:113
