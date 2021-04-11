@@ -30,6 +30,11 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.1.3 =
+
+* Rename methods in JavaScript
+* Lint JavaScript using [Rome](https://rome.tools/#installation-and-usage)
+
 = 1.1.2 =
 
 * Remove wp_localize_script
