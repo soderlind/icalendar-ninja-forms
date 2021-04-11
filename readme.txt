@@ -30,6 +30,10 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.1.4 =
+
+* Update translation file.
+
 = 1.1.3 =
 
 * Rename methods in JavaScript
