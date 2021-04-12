@@ -40,9 +40,10 @@ final class iCalendar {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof iCalendar ) ) {
 			self::$instance = new iCalendar();
 
-			self::$instance->objects['tags']     = new Tags();
-			self::$instance->objects['action']   = new Action();
-			self::$instance->objects['permlink'] = new Permalink();
+			self::$instance->objects['tags']       = new Tags();
+			self::$instance->objects['action']     = new Action();
+			self::$instance->objects['invitation'] = new Invitation();
+			self::$instance->objects['permlink']   = new Permalink();
 		}
 		return self::$instance;
 	}
