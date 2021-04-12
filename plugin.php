@@ -12,7 +12,7 @@
  * Plugin URI: https://github.com/soderlind/icalendar-ninja-forms
  * GitHub Plugin URI: https://github.com/soderlind/icalendar-ninja-forms
  * Description: Add an Event to your Ninja Forms.
- * Version:     1.2.0
+ * Version:     1.3.0
  * Author:      Per Søderlind
  * Author URI:  https://soderlind.no
  * Text Domain: icalendar-ninja-forms
@@ -32,12 +32,7 @@ const ICALENDAR_VERSION = '1.2.0';
 
 require_once \plugin_dir_path( ICALENDAR_FILE ) . 'vendor/autoload.php';
 
-add_action(
-	'init',
-	function() : void {
-		load_plugin_textdomain( 'icalendar-ninja-forms', false, \plugin_dir_path( ICALENDAR_FILE ) . 'languages' );
-	}
-);
+
 /**
  * Load iCalendar.
  *

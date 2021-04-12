@@ -30,6 +30,10 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.3.0 =
+
+* Refactor
+
 = 1.2.0 =
 
 * Refactor, move create VCALENDAR to card() in class Invitation.

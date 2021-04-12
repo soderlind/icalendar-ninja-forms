@@ -66,6 +66,10 @@ END:VCALENDAR
 
 ## Changelog
 
+### 1.3.0
+
+- Refactor away from anonymous class.
+
 ### 1.2.0
 
 - Refactor, move create VCALENDAR to card() in class Invitation.

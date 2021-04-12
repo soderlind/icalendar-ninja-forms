@@ -34,12 +34,13 @@ class Permalink {
 
 	/**
 	 * Add hooks.
+	 *
+	 * @uses Invitation->card
+	 *
+	 * @param Invitation $invitation
 	 */
-	public function __construct() {
-		$icalendar  = iCalendar();
-		$invitation = $icalendar->objects['invitation'];
+	public function __construct( Invitation $invitation) {
 		add_action( 'parse_request', [ $invitation, 'card' ] );
-
 		add_filter( 'generate_rewrite_rules', [ $this, 'action_reference_generate_rewrite_rules' ] );
 		add_filter( 'query_vars', [ $this, 'filter_query_vars' ] );
 		add_action( 'admin_init', [ $this, 'flush_rewrite_rule' ] );
