@@ -72,7 +72,6 @@ return apply_filters(
 					'label' => esc_html__( 'Event title', 'icalendar-ninja-forms' ),
 					'width' => 'full',
 					'group' => 'primary',
-					'help'  => __( 'Append the event URL to tne calendar', 'icalendar-ninja-forms' ),
 				],
 				[
 					'name'  => 'icalendar_add_message',
@@ -91,6 +90,7 @@ return apply_filters(
 					'deps'  => [
 						'icalendar_add_message' => 1,
 					],
+					'use_merge_tags' => true,
 				],
 			],
 		],
