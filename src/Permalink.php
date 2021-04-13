@@ -15,7 +15,7 @@ namespace Soderlind\NinjaForms\iCalendar;
 use DateTime;
 
 /**
- * Permalink class.
+ * Add and parse custom permalink.
  */
 class Permalink {
 

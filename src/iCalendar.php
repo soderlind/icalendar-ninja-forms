@@ -31,11 +31,6 @@ final class iCalendar {
 	 */
 	public $objects = [];
 
-
-	public function __construct() {
-		$this->init();
-	}
-
 	/**
 	 * Load instances once.
 	 *
@@ -44,7 +39,7 @@ final class iCalendar {
 	public static function instance() : object {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof iCalendar ) ) {
 			self::$instance = new iCalendar();
-
+			self::$instance->init();
 			// self::$instance->objects['tags']       = new Tags();
 			// self::$instance->objects['action']     = new Action();
 			$invitation = new Invitation();
@@ -90,6 +85,14 @@ final class iCalendar {
 		return $tags;
 	}
 
+	/**
+	 * Set form ID in Tags.
+	 *
+	 * @param bool $ok
+	 * @param array $form_data Data (Misc.) passed back to the client in the Response.
+	 *
+	 * @return bool
+	 */
 	public function set_form_id_in_merge_tag( $ok, $form_data ) {
 		$ical_merge_tags = \Ninja_Forms()->merge_tags['icalendar'];
 		$ical_merge_tags->set_form_id( $form_data['form_id'] );
