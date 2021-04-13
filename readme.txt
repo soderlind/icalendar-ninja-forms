@@ -32,7 +32,7 @@ Add a iCalendar to your Ninja Forms.
 
 = 1.3.0 =
 
-* Refactor
+* Refactor away from anonymous class.
 
 = 1.2.0 =
 

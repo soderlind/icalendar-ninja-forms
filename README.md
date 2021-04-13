@@ -1,5 +1,5 @@
 # iCalendar for Ninja Forms
-
+[![Latest Stable Version](https://poser.pugx.org/soderlind/icalendar-ninja-forms/v)](//packagist.org/packages/soderlind/icalendar-ninja-forms)
 ## Description
 
 Add an iCalendar to your Ninja Forms.
