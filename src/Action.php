@@ -15,7 +15,7 @@ namespace Soderlind\NinjaForms\iCalendar;
 /**
  * Add Ninja Form Action.
  */
-class Action extends \NF_Abstracts_Action{
+class Action extends \NF_Abstracts_Action {
 
 	/**
 	 * Action name.
@@ -61,8 +61,8 @@ class Action extends \NF_Abstracts_Action{
 
 		$this->_nicename = esc_html__( 'iCalendar', 'icalendar-ninja-forms' );
 
-		$event_pages     = $this->get_posts();
-		$settings        = self::config( 'iCalendarConfig', $event_pages );
+		$event_pages     = Helper\Pages::get();
+		$settings        = Helper\Config::get( $event_pages );
 		$this->_settings = $settings;
 
 		if ( empty( $this->form_id ) && isset( $_POST['form'] ) ) { // phpcs:ignore
@@ -121,63 +121,5 @@ class Action extends \NF_Abstracts_Action{
 		}
 
 		return $data;
-	}
-
-	/**
-	 * Load the config file.
-	 *
-	 * @param string $file_name Config file name, without file extension.
-	 * @param array  $event_pages List with event pages.
-	 *
-	 * @return array
-	 */
-	protected static function config( string $file_name, array $event_pages ) : array {
-		return include \plugin_dir_path( ICALENDAR_FILE ) . 'include/config/' . $file_name . '.php';
-	}
-
-	/**
-	 * Create event page list.
-	 *
-	 * @return Array   Event list setting
-	 */
-	protected function get_posts() {
-		$events = get_posts(
-			[
-				'post_type'   => 'page',
-				'post_status' => 'publish',
-				'numberposts' => -1,
-			]
-		);
-
-		$options = [];
-		$value   = '';
-		if ( $events ) {
-			foreach ( $events as  $event ) {
-				if ( '' === $value ) {
-					$value = $event->ID;
-				}
-				$options[] = [
-					'label' => $event->post_title,
-					'value' => $event->ID,
-				];
-			}
-			return [
-				'name'        => 'icalendar_post_id',
-				'type'        => 'select',
-				'label'       => __( 'Event page', 'date-range-ninja-forms' ),
-				'placeholder' => __( 'Select Post', 'icalendar-ninja-forms' ),
-				'width'       => 'one-half',
-				'group'       => 'primary',
-				'options'     => $options,
-				'value'       => $value,
-				'help'        => __( 'Select the page that describe the event', 'icalendar-ninja-forms' ),
-				'deps'        => [
-					'icalendar_append_url' => 1,
-				],
-			];
-		} else {
-			return [];
-		}
-
 	}
 }
