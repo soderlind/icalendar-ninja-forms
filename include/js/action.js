@@ -59,12 +59,12 @@ document.addEventListener(
 				this.listenTo(
 					iCalendarTitleSettingChannel,
 					"render:setting",
-					this.changeIconColor,
+					this.changeColor,
 				);
 				this.listenTo(
 					iCalendarOrganizerSettingChannel,
 					"render:setting",
-					this.changeIconColor,
+					this.changeColor,
 				);
 			}
 
@@ -126,7 +126,7 @@ document.addEventListener(
 			 * @param {*} dataModel
 			 * @param {*} view
 			 */
-			changeIconColor(settingModel, dataModel, view) {
+			changeColor(settingModel, dataModel, view) {
 				const label = view.el.querySelector("label");
 				Object.assign(label.style, {
 					"color": "red",
