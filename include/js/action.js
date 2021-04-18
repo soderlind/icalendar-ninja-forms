@@ -19,6 +19,14 @@ document.addEventListener(
 			"setting-icalendar_time_end",
 		);
 
+		const iCalendarTitleSettingChannel = nfRadio.channel(
+			"setting-icalendar_title",
+		);
+		const iCalendarOrganizerSettingChannel = nfRadio.channel(
+			"setting-icalendar_organizer",
+		);
+
+
 		const iCalendarsSettings = class extends Marionette.Object { // rome-ignore lint/js/noUndeclaredVariables: Marionett is an external object.
 			nfTextboxStyle = {
 				"background": "#f9f9f9",
@@ -47,6 +55,16 @@ document.addEventListener(
 					iCalendarTimeEndSettingChannel,
 					"render:setting",
 					this.renderTimeField,
+				);
+				this.listenTo(
+					iCalendarTitleSettingChannel,
+					"render:setting",
+					this.changeIconColor,
+				);
+				this.listenTo(
+					iCalendarOrganizerSettingChannel,
+					"render:setting",
+					this.changeIconColor,
 				);
 			}
 
@@ -99,6 +117,24 @@ document.addEventListener(
 					).format();
 				}
 				Object.assign(element.style, this.nfTextboxStyle);
+			}
+
+			/**
+			 * Mark mandatory field with color red.
+			 *
+			 * @param {*} settingModel
+			 * @param {*} dataModel
+			 * @param {*} view
+			 */
+			changeIconColor(settingModel, dataModel, view) {
+				const label = view.el.querySelector("label");
+				Object.assign(label.style, {
+					"color": "red",
+				});
+				const dashicon = view.el.getElementsByClassName("dashicons-admin-comments")[0];
+				Object.assign(dashicon.style, {
+					"color": "red",
+				});
 			}
 		};
 
