@@ -18,7 +18,7 @@ namespace Soderlind\NinjaForms\iCalendar;
 class Invitation {
 
 	/**
-	 * Parse query variables and return iCalendar file if match is set.
+	 * Parse query variables and return iCalendar file if match is met.
 	 *
 	 * @param \WP $wp Current WordPress environment instance (passed by reference).
 	 *
@@ -44,7 +44,7 @@ class Invitation {
 
 				$form_id     = $form_uids[ $form_uid ];
 				$data        = get_option( 'ical_form_' . $form_id );
-				$title       = wp_strip_all_tags( $data['icalendar_title'] );
+				$title       = ( ! empty( $data['icalendar_title'] ) ) ? wp_strip_all_tags( $data['icalendar_title'] ) : __( 'Event invitation', 'icalendar-ninja-forms' );
 				$event_start = wp_date( sprintf( '%s %s', $data['icalendar_date'], $data['icalendar_time_start'] ) );
 				$event_end   = wp_date( sprintf( '%s %s', $data['icalendar_date'], $data['icalendar_time_end'] ) );
 
