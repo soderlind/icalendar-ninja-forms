@@ -30,6 +30,15 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.3.3 =
+
+* Rename method in `include/js/actions.js`
+
+= 1.3.2 =
+
+* Set default title in vcalendar
+* Mark mandatory settings
+
 = 1.3.0 =
 
 * Refactor away from anonymous class.
