@@ -15,7 +15,7 @@ namespace Soderlind\NinjaForms\iCalendar;
 /**
  * Create form tags.
  */
-class Tags extends \NF_Abstracts_MergeTags { // Anonymous class, PHP 7.x required.
+class Tags extends \NF_Abstracts_MergeTags {
 
 	/**
 	 * Tag ID.

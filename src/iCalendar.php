@@ -13,7 +13,7 @@ declare( strict_types = 1 );
 namespace Soderlind\NinjaForms\iCalendar;
 
 /**
- * iCalendar.
+ * Main class, iCalendar.
  */
 final class iCalendar {
 
@@ -25,13 +25,6 @@ final class iCalendar {
 	private static $instance;
 
 	/**
-	 * All objects.
-	 *
-	 * @var array
-	 */
-	public $objects = [];
-
-	/**
 	 * Load instances once.
 	 *
 	 * @return object
@@ -40,8 +33,6 @@ final class iCalendar {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof iCalendar ) ) {
 			self::$instance = new iCalendar();
 			self::$instance->init();
-			// self::$instance->objects['tags']       = new Tags();
-			// self::$instance->objects['action']     = new Action();
 			$invitation = new Invitation();
 			new Permalink( $invitation );
 		}
@@ -57,7 +48,7 @@ final class iCalendar {
 		add_filter( 'ninja_forms_register_actions', [ $this, 'register_actions' ] );
 		add_filter( 'ninja_forms_register_merge_tags', [ $this, 'register_tag' ], 20 );
 		add_action( 'nf_admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_filter( 'ninja_forms_validate_fields', [ $this, 'set_form_id_in_merge_tag' ], 90,2 );
+		add_filter( 'ninja_forms_validate_fields', [ $this, 'set_form_id_in_merge_tag' ], 90, 2 );
 		add_action( 'init', [ $this, 'load_textdomain' ] );
 	}
 
@@ -88,7 +79,7 @@ final class iCalendar {
 	/**
 	 * Set form ID in Tags.
 	 *
-	 * @param bool $ok
+	 * @param bool  $ok True or false. The value is returned unmodified.
 	 * @param array $form_data Data (Misc.) passed back to the client in the Response.
 	 *
 	 * @return bool
