@@ -64,6 +64,10 @@ END:VCALENDAR
 
 - Validate settings
 
+## See also
+
+I've created a [date range](https://github.com/soderlind/date-range-ninja-forms) add-on for Ninja Forms.
+
 ## Changelog
 
 ### 1.3.3
