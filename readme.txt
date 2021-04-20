@@ -30,6 +30,10 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 1.3.4 =
+
+* Remove incompatible attribute.
+
 = 1.3.3 =
 
 * Rename method in `include/js/actions.js`

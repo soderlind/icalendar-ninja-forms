@@ -70,6 +70,10 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 ## Changelog
 
+### 1.3.4
+
+- Remove incompatible attribute.
+
 ### 1.3.3
 
 - Rename method in `include/js/actions.js`
