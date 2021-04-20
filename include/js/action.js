@@ -83,7 +83,6 @@ document.addEventListener(
 			renderDateField(settingModel, dataModel, view) {
 				const element = view.el.getElementsByClassName("setting")[0];
 				element.attributes["type"].value = "date";
-				element.attributes["pattern"] = "d{4}-d{2}-d{2}";
 				if (!element.value) {
 					element.valueAsDate = new Date();
 				}
@@ -105,7 +104,6 @@ document.addEventListener(
 			renderTimeField(settingModel, dataModel, view) {
 				const element = view.el.getElementsByClassName("setting")[0];
 				element.attributes["type"].value = "time";
-				element.attributes["pattern"] = "d{2}:d{2}";
 
 				if (!element.value) {
 					element.value = new Intl.DateTimeFormat(
