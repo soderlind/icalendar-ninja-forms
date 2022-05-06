@@ -1,6 +1,6 @@
 <?php
 /**
- * iCalendar for Ninja Forms: Pages
+ * iCalendar for Ninja Forms: Pages @codingStandardsIgnoreLine.
  *
  * @package     Soderlind\NinjaForms\iCalendar
  * @author      Per Søderlind
@@ -55,6 +55,7 @@ class Pages {
 				'deps'        => [
 					'icalendar_append_url' => 1,
 				],
+
 			];
 		} else {
 			return [];

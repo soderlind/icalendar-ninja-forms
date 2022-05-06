@@ -1,6 +1,6 @@
 <?php
 /**
- * iCalendar for Ninja Forms.
+ * iCalendar for Ninja Forms. @codingStandardsIgnoreLine.
  *
  * @package     Soderlind\NinjaForms\iCalendar
  * @author      Per Søderlind
@@ -15,7 +15,7 @@ namespace Soderlind\NinjaForms\iCalendar;
 /**
  * Main class, iCalendar.
  */
-final class iCalendar {
+final class iCalendar {//phpcs:ignore 
 
 	/**
 	 * Object instance.
@@ -85,7 +85,7 @@ final class iCalendar {
 	 * @return bool
 	 */
 	public function set_form_id_in_merge_tag( $ok, $form_data ) {
-		$ical_merge_tags = \Ninja_Forms()->merge_tags['icalendar'];
+		$ical_merge_tags = \Ninja_Forms()->merge_tags['icalendar']; //phpcs:ignore WordPress.undefined.function
 		$ical_merge_tags->set_form_id( $form_data['form_id'] );
 
 		return $ok;

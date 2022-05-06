@@ -1,6 +1,6 @@
 <?php
 /**
- * iCalendar for Ninja Forms: Permalink.
+ * iCalendar for Ninja Forms: Permalink. @codingStandardsIgnoreLine.
  *
  * @package     Soderlind\NinjaForms\iCalendar
  * @author      Per Søderlind
@@ -35,7 +35,7 @@ class Permalink {
 	 *
 	 * @uses Invitation->card
 	 *
-	 * @param Invitation $invitation
+	 * @param Invitation $invitation Invitation object.
 	 */
 	public function __construct( Invitation $invitation ) {
 		add_action( 'parse_request', [ $invitation, 'card' ] );

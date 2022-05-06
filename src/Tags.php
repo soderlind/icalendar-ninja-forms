@@ -1,6 +1,6 @@
 <?php
 /**
- * iCalendar for Ninja Forms: Tags.
+ * iCalendar for Ninja Forms: Tags. @codingStandardsIgnoreLine.
  *
  * @package     Soderlind\NinjaForms\iCalendar
  * @author      Per Søderlind
@@ -15,7 +15,8 @@ namespace Soderlind\NinjaForms\iCalendar;
 /**
  * Create form tags.
  */
-class Tags extends \NF_Abstracts_MergeTags {
+class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore 
+
 
 	/**
 	 * Tag ID.
@@ -35,7 +36,7 @@ class Tags extends \NF_Abstracts_MergeTags {
 	 * Add new tags.
 	 */
 	public function __construct() {
-		parent::__construct();
+		parent::__construct(); //phpcs:ignore
 
 		$this->title      = esc_html__( 'iCalendar', 'icalendar-ninja-forms' );
 		$this->merge_tags = [
