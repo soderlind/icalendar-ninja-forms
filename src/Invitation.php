@@ -45,7 +45,6 @@ class Invitation {
 				$form_id = $form_uids[ $form_uid ];
 				$data    = get_option( 'ical_form_' . $form_id );
 				$title   = ( ! empty( $data['icalendar_title'] ) ) ? wp_strip_all_tags( $data['icalendar_title'] ) : __( 'Event invitation', 'icalendar-ninja-forms' );
-				ray( $data );
 
 				if ( isset( $data['icalendar_time_start'] ) ) {
 					_doing_it_wrong(
@@ -110,8 +109,7 @@ class Invitation {
 		$date = preg_replace( ' / ( . * )Z$ / ', '${1} + 00:00', $date );
 
 		$d = \DateTime::createFromFormat( $format, $date );
-		ray( $d );
-		ray( $date );
+
 		return $d && $d->format( $format ) === $date;
 	}
 
