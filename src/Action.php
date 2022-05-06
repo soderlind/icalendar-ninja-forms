@@ -1,6 +1,6 @@
 <?php
 /**
- * iCalendar for Ninja Forms: Add action.
+ * iCalendar for Ninja Forms: Add action. @codingStandardsIgnoreLine.
  *
  * @package     Soderlind\NinjaForms\iCalendar
  * @author      Per Søderlind
@@ -15,7 +15,7 @@ namespace Soderlind\NinjaForms\iCalendar;
 /**
  * Add Ninja Form Action.
  */
-class Action extends \NF_Abstracts_Action {
+class Action extends \NF_Abstracts_Action { // phpcs:ignore
 
 	/**
 	 * Action name.
@@ -61,8 +61,9 @@ class Action extends \NF_Abstracts_Action {
 
 		$this->_nicename = esc_html__( 'iCalendar', 'icalendar-ninja-forms' );
 
-		$event_pages     = Helper\Pages::get();
-		$settings        = Helper\Config::get( $event_pages );
+		$event_pages = Helper\Pages::get();
+		$settings    = Helper\Config::get( $event_pages );
+
 		$this->_settings = $settings;
 
 		if ( empty( $this->form_id ) && isset( $_POST['form'] ) ) { // phpcs:ignore
@@ -116,8 +117,8 @@ class Action extends \NF_Abstracts_Action {
 				$form_id => $uid,
 			];
 
-			update_option( 'ical_form_' . $form_id, $ical_data );
-			update_option( 'ical_link_form_id', $ical_link_form_id );
+			update_option( 'ical_form_' . $form_id, $ical_data, 'no' );
+			update_option( 'ical_link_form_id', $ical_link_form_id, 'no' );
 		}
 
 		return $data;
