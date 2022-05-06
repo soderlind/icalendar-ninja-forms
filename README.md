@@ -1,23 +1,24 @@
 # iCalendar for Ninja Forms
+
 [![Latest Stable Version](https://poser.pugx.org/soderlind/icalendar-ninja-forms/v)](//packagist.org/packages/soderlind/icalendar-ninja-forms)
+
 ## Description
 
 Add an iCalendar to your Ninja Forms.
 
-
-
 ## Installation
 
 Prerequisite:
+
 - PHP 7.2-8.0.x
 - [Ninja Forms](https://wordpress.org/plugins/ninja-forms/)
 
 You know the drill:
+
 1. [Download the plugin](https://github.com/soderlind/icalendar-ninja-form/archive/refs/heads/main.zip)
 1. Upload the plugin via `Plugins->Add New->Upload`
 1. Activate the plugin.
 1. Use Ninja Forms to add the iCalendar.
-
 
 ## Use
 
@@ -70,6 +71,10 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 ## Changelog
 
+### 2.0.0
+
+- Note, this is a breaking change. You can now select a date range and a time range.
+
 ### 1.3.4
 
 - Remove incompatible attribute.
@@ -82,7 +87,6 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 - Set default title in vcalendar
 - Mark mandatory settings
-
 
 ### 1.3.0
 
@@ -112,16 +116,15 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 ### 1.1.0
 
-* Add date and time picker
+- Add date and time picker
 
 ### 1.0.0
 
-* Initial release.
-
+- Initial release.
 
 ## Credits
 
-iCalendar for Ninja Forms uses the [Zap Calendar iCalendar Library](https://github.com/zcontent/icalendar). The Zap Calendar iCalendar Library has a GNU GPLv3 licence and is Copyright (C) 2006 - 2017 by  [Dan Cogliano](https://zcontent.net/).
+iCalendar for Ninja Forms uses the [Zap Calendar iCalendar Library](https://github.com/zcontent/icalendar). The Zap Calendar iCalendar Library has a GNU GPLv3 licence and is Copyright (C) 2006 - 2017 by [Dan Cogliano](https://zcontent.net/).
 
 ## Copyright and License
 

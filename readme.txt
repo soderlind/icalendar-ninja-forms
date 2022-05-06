@@ -3,7 +3,7 @@ Contributors: PerS
 Donate link: https://soderlind.no/donate/
 Tags: date
 Requires at least: 5.4
-Tested up to: 5.7
+Tested up to: 6.0
 Stable tag: trunk
 Requires PHP: 7.2
 License: GPLv2 or later
@@ -29,6 +29,10 @@ Add a iCalendar to your Ninja Forms.
 3. iCalendar at the front-end.
 
 == Changelog ==
+
+= 2.0.0 =
+
+* Note, this is a breaking change. You can now select a date range and a time range. 
 
 = 1.3.4 =
 
