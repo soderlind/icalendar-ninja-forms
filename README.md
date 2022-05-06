@@ -10,7 +10,7 @@ Add an iCalendar to your Ninja Forms.
 
 Prerequisite:
 
-- PHP 7.2-8.0.x
+- PHP 7.2-8.x
 - [Ninja Forms](https://wordpress.org/plugins/ninja-forms/)
 
 You know the drill:
