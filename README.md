@@ -32,7 +32,7 @@ You know the drill:
 
 ### Add link to Success Message, Email Confirmation etc:
 
-- **Link** (`{ical:link}`), adds a `<a href=".../event-xyz.ics">Add the event to your calendar</a>` link. The "Add the event to your calendar" text can be changed in iCalendar advanced settings.
+- **Link** (`{ical:link}`), adds a `<a href=".../event-xyz.ics">Add the event to your calendar</a>` link. The "Add the event to your calendar" text can be changed in iCalendar settings.
 - **URL** (`{ical:url}`), adds `http[s]://yoursite.tld/event-xyz.ics`
 
 <img src="assets/add-merge-tag.gif" />
