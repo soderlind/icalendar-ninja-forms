@@ -46,48 +46,49 @@ class Invitation {
 				$data    = get_option( 'ical_form_' . $form_id );
 				$title   = ( ! empty( $data['icalendar_title'] ) ) ? wp_strip_all_tags( $data['icalendar_title'] ) : __( 'Event invitation', 'icalendar-ninja-forms' );
 
-				if ( isset( $data['icalendar_time_start'] ) ) {
-					_doing_it_wrong(
-						'icalendar time fields',
-						esc_html__( 'The ninja forms icalendar setting time fields are deprecated. Please use upgrade the plugin to version 2.0.0 or later', 'icalendar-ninja-forms' ),
-						'2.0.0'
-					);
-					$event_start = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_start'] ) );
-					$event_end   = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_end'] ) );
-				} else {
+				// if ( isset( $data['icalendar_time_start'] ) ) {
+				// 	_doing_it_wrong(
+				// 		'icalendar time fields',
+				// 		esc_html__( 'The ninja forms icalendar setting time fields are deprecated. Please use upgrade the plugin to version 2.0.0 or later', 'icalendar-ninja-forms' ),
+				// 		'2.0.0'
+				// 	);
+				// 	$event_start = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_start'] ) );
+				// 	$event_end   = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_end'] ) );
+				// } else {
 					$event_start = $data['icalendar_date'];
 					$event_end   = $data['icalendar_end_date'];
-				};
+				// };
 				$message = '';
 				if ( isset( $data['icalendar_add_message'], $data['icalendar_message'] ) && '1' === $data['icalendar_add_message'] ) {
 					$message .= wp_strip_all_tags( $data['icalendar_message'] );
 				}
 				if ( isset( $data['icalendar_append_url'], $data['icalendar_post_id'] ) && '1' === $data['icalendar_append_url'] ) {
 					$url       = get_permalink( $data['icalendar_post_id'] );
-					$link_text = ( ! empty( $data['icalendar_append_url_link_text'] ) ) ? wp_strip_all_tags( $data['icalendar_append_url_link_text'] ) : __( 'More information', 'icalendar - ninja - forms' );
+					$link_text = ( ! empty( $data['icalendar_append_url_link_text'] ) ) ? wp_strip_all_tags( $data['icalendar_append_url_link_text'] ) : __( 'More information', 'icalendar-ninja-forms' );
 					$message  .= sprintf( "\n%s %s", $link_text, $url );
 				}
 
 				$icalobj  = new \ZCiCal();
 				$eventobj = new \ZCiCalNode( 'VEVENT', $icalobj->curnode );
 				$eventobj->addNode( new \ZCiCalDataNode( 'SUMMARY:' . $title ) );
+
 				$eventobj->addNode( new \ZCiCalDataNode( 'DTSTART:' . \ZCiCal::fromSqlDateTime( $event_start ) ) );
 				$eventobj->addNode( new \ZCiCalDataNode( 'DTEND:' . \ZCiCal::fromSqlDateTime( $event_end ) ) );
 				$eventobj->addNode( new \ZCiCalDataNode( 'ORGANIZER:' . $data['icalendar_organizer'] ) );
 
-				$uid = 'icalendar - ninja - forms - ' . $data['icalendar_uid'];
+				$uid = 'icalendar-ninja-forms-' . $data['icalendar_uid'];
 				$eventobj->addNode( new \ZCiCalDataNode( 'UID:' . $uid ) );
 
 				// DTSTAMP is a required item in VEVENT.
-				$utc_now = wp_date( 'Y - m - d H:i:s', time(), new \DateTimeZone( 'UTC' ) );
+				$utc_now = wp_date( 'Y-m-d H:i:s', time(), new \DateTimeZone( 'UTC' ) );
 				$eventobj->addNode( new \ZCiCalDataNode( 'DTSTAMP:' . \ZCiCal::fromSqlDateTime( $utc_now ) ) );
 
 				if ( '' !== $message ) {
 					$eventobj->addNode( new \ZCiCalDataNode( 'DESCRIPTION:' . \ZCiCal::formatContent( $message ) ) );
 				}
 
-				header( 'Content - type: text / calendar; charset         = utf - 8' );
-				header( sprintf( 'Content - Disposition: inline; filename = event - % s . ics', $data['icalendar_uid'] ) );
+				header( 'Content-type: text/calendar; charset=utf-8' );
+				header( sprintf( 'Content-Disposition:inline; filename=event-%s.ics', $data['icalendar_uid'] ) );
 
 				echo esc_html( $icalobj->export() );
 				exit();
@@ -104,9 +105,9 @@ class Invitation {
 	 *
 	 * @return bool
 	 */
-	private function is_valid_date( $date, $format = 'Y - m - d H:i:s' ) {
+	private function is_valid_date( $date, $format = 'Y-m-d H:i:s' ) {
 		// replace a 'Z' at the end by ' + 00:00'.
-		$date = preg_replace( ' / ( . * )Z$ / ', '${1} + 00:00', $date );
+		$date = preg_replace( '/(.*)Z$/', '${1}+00:00', $date );
 
 		$d = \DateTime::createFromFormat( $format, $date );
 
