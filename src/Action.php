@@ -64,7 +64,7 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 		$event_pages = Helper\Pages::get();
 		$settings    = Helper\Config::get( $event_pages );
 
-		$this->_settings = $settings;
+		$this->_settings = array_merge( $this->_settings, $settings );
 
 		if ( empty( $this->form_id ) && isset( $_POST['form'] ) ) { // phpcs:ignore
 			$form_data = json_decode( $_POST['form'], true ); // phpcs:ignore

@@ -71,6 +71,10 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 ## Changelog
 
+### 2.1.0
+
+- Enable conditional logic for the iCalendar.
+
 ### 2.0.0
 
 - Note, this is a breaking change. You can now select a date range and a time range.
