@@ -37,6 +37,12 @@ You know the drill:
 
 <img src="assets/add-merge-tag.gif" />
 
+### Conditional Logic
+
+Require [Ninja Forms Conditional Logic](https://ninjaforms.com/extensions/conditional-logic/) to be enabled.
+
+<img src="assets/conditional-logic-icalendar.gif" />
+
 ### Email with iCalendar link
 
 <img src="assets/email.png" />
@@ -60,10 +66,6 @@ DESCRIPTION:Welcome to our Launch Party!!\nMore information at: http://party.loc
 END:VEVENT
 END:VCALENDAR
 ```
-
-## Todo
-
-- Validate settings
 
 ## See also
 
