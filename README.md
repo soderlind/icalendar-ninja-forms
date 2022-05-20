@@ -41,6 +41,13 @@ You know the drill:
 
 Require [Ninja Forms Conditional Logic](https://ninjaforms.com/extensions/conditional-logic/) to be enabled.
 
+Per condition
+
+- add an iCalendar
+- add a response.
+
+See example below
+
 <img src="assets/conditional-logic-icalendar.gif" />
 
 ### Email with iCalendar link
