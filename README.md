@@ -9,6 +9,7 @@ Add an iCalendar to your Ninja Forms.
 ## Installation
 
 > **NOTE**
+>
 > Prerequisite:
 >
 > - PHP 7.2-8.x
