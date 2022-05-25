@@ -6,3 +6,4 @@ parameters:
 	scanDirectories:
 		- include/icalendar
 		- ../ninja-forms
+		- ../../../wp-includes
