@@ -59,6 +59,7 @@ class Permalink {
 	 * Fires after the rewrite rules are generated.
 	 *
 	 * @param \WP_Rewrite $wp_rewrite Current WP_Rewrite instance (passed by reference).
+	 * @return array<string,string>
 	 */
 	public function action_reference_generate_rewrite_rules( \WP_Rewrite $wp_rewrite ) {
 		$new_rules         = [ $this->permalink_rule => sprintf( 'index.php?icalendar=%s', $wp_rewrite->preg_index( 1 ) ) ];

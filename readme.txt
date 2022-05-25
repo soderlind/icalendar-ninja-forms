@@ -30,6 +30,14 @@ Add a iCalendar to your Ninja Forms.
 
 == Changelog ==
 
+= 2.1.1 =
+
+* PHPStan it.
+
+= 2.1.0 =
+
+* Enable conditional logic for the iCalendar.
+
 = 2.0.0 =
 
 * Note, this is a breaking change. You can now select a date range and a time range. 

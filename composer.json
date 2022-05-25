@@ -18,5 +18,14 @@
 		"psr-4": {
 			"Soderlind\\NinjaForms\\iCalendar\\": "src/"
 		}
+	},
+	"require-dev": {
+		"szepeviktor/phpstan-wordpress": "^1.1",
+		"phpstan/extension-installer": "^1.1"
+	},
+	"config": {
+		"allow-plugins": {
+			"phpstan/extension-installer": true
+		}
 	}
 }

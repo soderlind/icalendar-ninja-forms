@@ -24,18 +24,18 @@ You know the drill:
 
 ### Per event form, add the action:
 
-<img src="assets/add-icalendar.gif" />
+<img src=".wordpress-org/add-icalendar.gif" />
 
 ### Add event date etc:
 
-<img src="assets/icalendar-event.png" />
+<img src=".wordpress-org/icalendar-event.png" />
 
 ### Add link to Success Message, Email Confirmation etc:
 
 - **Link** (`{ical:link}`), adds a `<a href=".../event-xyz.ics">Add the event to your calendar</a>` link. The "Add the event to your calendar" text can be changed in iCalendar settings.
 - **URL** (`{ical:url}`), adds `http[s]://yoursite.tld/event-xyz.ics`
 
-<img src="assets/add-merge-tag.gif" />
+<img src=".wordpress-org/add-merge-tag.gif" />
 
 ### Conditional Logic
 
@@ -48,11 +48,11 @@ Per condition
 
 See example below
 
-<img src="assets/conditional-logic-icalendar.gif" />
+<img src=".wordpress-org/conditional-logic-icalendar.gif" />
 
 ### Email with iCalendar link
 
-<img src="assets/email.png" />
+<img src=".wordpress-org/email.png" />
 
 ### Example calendar.ics:
 
@@ -79,6 +79,10 @@ END:VCALENDAR
 I've created a [date range](https://github.com/soderlind/date-range-ninja-forms) add-on for Ninja Forms.
 
 ## Changelog
+
+### 2.1.1
+
+- PHPStan it.
 
 ### 2.1.0
 

@@ -37,7 +37,7 @@ class Invitation {
 				$wp_query->set_404();
 				status_header( 404 );
 				nocache_headers();
-				get_template_part( 404 );
+				get_template_part( '404' );
 
 				die();
 			} else {
@@ -47,13 +47,13 @@ class Invitation {
 				$title   = ( ! empty( $data['icalendar_title'] ) ) ? wp_strip_all_tags( $data['icalendar_title'] ) : __( 'Event invitation', 'icalendar-ninja-forms' );
 
 				// if ( isset( $data['icalendar_time_start'] ) ) {
-				// 	_doing_it_wrong(
-				// 		'icalendar time fields',
-				// 		esc_html__( 'The ninja forms icalendar setting time fields are deprecated. Please use upgrade the plugin to version 2.0.0 or later', 'icalendar-ninja-forms' ),
-				// 		'2.0.0'
-				// 	);
-				// 	$event_start = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_start'] ) );
-				// 	$event_end   = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_end'] ) );
+				// _doing_it_wrong(
+				// 'icalendar time fields',
+				// esc_html__( 'The ninja forms icalendar setting time fields are deprecated. Please use upgrade the plugin to version 2.0.0 or later', 'icalendar-ninja-forms' ),
+				// '2.0.0'
+				// );
+				// $event_start = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_start'] ) );
+				// $event_end   = wp_date( sprintf( ' % s % s', $data['icalendar_date'], $data['icalendar_time_end'] ) );
 				// } else {
 					$event_start = $data['icalendar_date'];
 					$event_end   = $data['icalendar_end_date'];
@@ -96,22 +96,5 @@ class Invitation {
 		}
 	}
 
-	/**
-	 * Check if date is valid.
-	 *
-	 * @param [type] $date Date to be validated.
-	 * @param string $format Date format.
-	 * @link https://www.php.net/manual/en/function.checkdate.php#126477
-	 *
-	 * @return bool
-	 */
-	private function is_valid_date( $date, $format = 'Y-m-d H:i:s' ) {
-		// replace a 'Z' at the end by ' + 00:00'.
-		$date = preg_replace( '/(.*)Z$/', '${1}+00:00', $date );
-
-		$d = \DateTime::createFromFormat( $format, $date );
-
-		return $d && $d->format( $format ) === $date;
-	}
 
 }
