@@ -27,7 +27,7 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 	/**
 	 * Tags.
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	protected $_tags = []; // phpcs:ignore
 
@@ -43,7 +43,7 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 	 *
 	 * @var int
 	 */
-	protected $_priority = '10'; // phpcs:ignore
+	protected $_priority = 10; // phpcs:ignore
 
 	/**
 	 * Form ID.
@@ -77,22 +77,19 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 	/**
 	 * Overloaded method. When a form is submitted, reads the action settings and processes them.
 	 *
-	 * @param array   $action_settings Actions settings.
-	 * @param integer $form_id         Form ID.
-	 * @param array   $data            Form data.
+	 * @param array<string> $action_settings Actions settings.
+	 * @param integer       $form_id         Form ID.
+	 * @param array<string> $data            Form data.
 	 *
-	 * @return array
+	 * @return array<string>
 	 */
 	public function process( $action_settings, $form_id, $data ) {
 
 		if ( isset( $action_settings['icalendar_title'] ) ) {
 
 			$ical_data = get_option( 'ical_form_' . $form_id, [] );
-
-			// Create uid if it doesn't exist.
-			if ( ! isset( $ical_data['icalendar_uid'] ) ) {
-				$uid = uniqid();
-			} else {
+			$uid       = uniqid();
+			if ( isset( $ical_data['icalendar_uid'] ) ) {
 				$uid = $ical_data['icalendar_uid'];
 			}
 
@@ -109,7 +106,7 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 
 			$ical_data['icalendar_uid'] = $uid;
 
-			if ( empty( $ical_data['icalendar_organizer'] ) ) {
+			if ( ! isset( $ical_data['icalendar_organizer'] ) ) { /** @phpstan-ignore-line */
 				$ical_data['icalendar_organizer'] = get_option( 'admin_email' );
 			}
 

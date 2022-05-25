@@ -19,7 +19,7 @@ class Pages {
 	/**
 	 * Get list of pages.
 	 *
-	 * @return Array   Event list setting
+	 * @return array<mixed>   Event list setting
 	 */
 	public static function get() : array {
 		$events = get_posts(

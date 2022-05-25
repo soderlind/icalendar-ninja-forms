@@ -26,9 +26,9 @@ class Config {
 	/**
 	 * Get action settings
 	 *
-	 * @param array $event_pages Event page settings.
+	 * @param array<object> $event_pages Event page settings.
 	 *
-	 * @return array
+	 * @return array<mixed> Action settings.
 	 */
 	public static function get( array $event_pages = [] ) : array {
 		return apply_filters(

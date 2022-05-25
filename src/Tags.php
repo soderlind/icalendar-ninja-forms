@@ -64,7 +64,7 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 		$options = get_option( 'ical_form_' . $this->form_id, [] );
 		$forms   = get_option( 'ical_link_form_id', [] );
 
-		if ( isset( $this->form_id, $forms[ $this->form_id ], $options['icalendar_link_text'] ) ) {
+		if ( isset( $forms[ $this->form_id ], $options['icalendar_link_text'] ) ) {
 			return sprintf( '<a href="%s/event-%s.ics">%s</a>', get_home_url(), untrailingslashit( $forms[ $this->form_id ] ), $options['icalendar_link_text'] );
 		} else {
 			return '';
@@ -78,7 +78,7 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 	 */
 	public function ical_url() {
 		$forms = get_option( 'ical_link_form_id' );
-		if ( isset( $this->form_id, $forms[ $this->form_id ] ) ) {
+		if ( isset( $forms[ $this->form_id ] ) ) {
 			return sprintf( '%s/event-%s.ics"', get_home_url(), untrailingslashit( $forms[ $this->form_id ] ) );
 		} else {
 			return '';
@@ -90,7 +90,7 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 	 *
 	 * @since 3.2.2
 	 *
-	 * @param string $form_id The ID of the current form.
+	 * @param int $form_id The ID of the current form.
 	 * @return void
 	 */
 	public function set_form_id( $form_id ) {

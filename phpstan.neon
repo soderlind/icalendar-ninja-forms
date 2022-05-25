@@ -1,0 +1,8 @@
+parameters:
+	level: 6
+	paths:
+		- ./plugin.php
+		- src
+	scanDirectories:
+		- include/icalendar
+		- ../ninja-forms

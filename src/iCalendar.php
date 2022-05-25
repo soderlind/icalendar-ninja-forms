@@ -30,7 +30,7 @@ final class iCalendar {//phpcs:ignore
 	 * @return object
 	 */
 	public static function instance() : object {
-		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof iCalendar ) ) {
+		if ( ! ( self::$instance instanceof iCalendar ) ) {
 			self::$instance = new iCalendar();
 			self::$instance->init();
 			$invitation = new Invitation();
@@ -55,9 +55,9 @@ final class iCalendar {//phpcs:ignore
 	/**
 	 * Add action.
 	 *
-	 * @param array $actions List of Ninja Form actions.
+	 * @param array<string,object> $actions List of Ninja Form actions.
 	 *
-	 * @return array
+	 * @return array<string,object>
 	 */
 	public function register_actions( array $actions ) :array {
 		$actions['icalendar'] = new Action();
@@ -67,9 +67,9 @@ final class iCalendar {//phpcs:ignore
 	/**
 	 * Register form tags.
 	 *
-	 * @param array $tags Existing tags.
+	 * @param array<string,object> $tags Existing tags.
 	 *
-	 * @return array
+	 * @return array<string,object>
 	 */
 	public function register_tag( array $tags ) : array {
 		$tags['icalendar'] = new Tags();
@@ -79,8 +79,8 @@ final class iCalendar {//phpcs:ignore
 	/**
 	 * Set form ID in Tags.
 	 *
-	 * @param bool  $ok True or false. The value is returned unmodified.
-	 * @param array $form_data Data (Misc.) passed back to the client in the Response.
+	 * @param bool         $ok True or false. The value is returned unmodified.
+	 * @param array<mixed> $form_data Data (Misc.) passed back to the client in the Response.
 	 *
 	 * @return bool
 	 */
