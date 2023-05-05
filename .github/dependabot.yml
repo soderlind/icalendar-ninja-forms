@@ -1,0 +1,73 @@
+version: 2
+updates:
+    - package-ecosystem: github-actions
+      directory: /
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      labels:
+          - '[Dependency] GitHub Action'
+          - '[Type] Dependency'
+    - package-ecosystem: 'npm'
+      directory: '/'
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      rebase-strategy: disabled
+      labels:
+          - '[Dependency] JavaScript'
+          - '[Type] Dependency'
+    - package-ecosystem: 'composer'
+      directory: '/'
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      labels:
+          - '[Dependency] php'
+          - '[Type] Dependency'
+    - package-ecosystem: 'composer'
+      directory: '/themes/fleksibel'
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      labels:
+          - '[Dependency] php'
+          - '[Type] Dependency'
+    - package-ecosystem: 'composer'
+      directory: '/themes/standard'
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      labels:
+          - '[Dependency] php'
+          - '[Type] Dependency'
+    - package-ecosystem: 'composer'
+      directory: '/themes/utvalg'
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      labels:
+          - '[Dependency] php'
+          - '[Type] Dependency'
+    - package-ecosystem: 'composer'
+      directory: '/plugins/dss-setup'
+      schedule:
+          interval: weekly
+          timezone: Europe/Oslo
+          time: '09:00'
+      open-pull-requests-limit: 30
+      labels:
+          - '[Dependency] php'
+          - '[Type] Dependency'
