@@ -4,6 +4,5 @@ parameters:
 		- ./plugin.php
 		- src
 	scanDirectories:
-		- include/icalendar
 		- ../ninja-forms
 		- ../../../wp-includes
