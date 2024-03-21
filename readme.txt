@@ -2,10 +2,10 @@
 Contributors: PerS
 Donate link: https://soderlind.no/donate/
 Tags: date
-Requires at least: 5.4
-Tested up to: 6.0
-Stable tag: trunk
-Requires PHP: 7.2
+Requires at least: 6.0
+Tested up to: 6.5
+Stable tag: 2.2.0
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,19 @@ Add a iCalendar to your Ninja Forms.
 3. iCalendar at the front-end.
 
 == Changelog ==
+
+= 2.2.0 =
+
+* Create the calendar using [Eluceo\iCal](https://github.com/markuspoerschke/iCal) 
+	- multiline message 
+	- link to event page 
+	- add event location, inclusive latitude and longitude
+	- attach calendar to email
+* Update translation file.
+	- Add Norwegian translation
+* Update dependencies
+* Housekeeping
+
 
 = 2.1.1 =
 
