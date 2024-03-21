@@ -80,6 +80,18 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 ## Changelog
 
+### 2.2.0
+
+- Create the calendar using [Eluceo\iCal](https://github.com/markuspoerschke/iCal)
+  - multiline message
+  - link to event page
+  - add event location, inclusive latitude and longitude
+  - attach calendar to email
+- Update translation file.
+  - Add Norwegian translation
+- Update dependencies
+- Housekeeping
+
 ### 2.1.1
 
 - PHPStan it.
