@@ -20,12 +20,18 @@
 		}
 	},
 	"require-dev": {
-		"szepeviktor/phpstan-wordpress": "^1.1",
+		"szepeviktor/phpstan-wordpress": "^1.3",
 		"phpstan/extension-installer": "^1.1"
 	},
 	"config": {
 		"allow-plugins": {
 			"phpstan/extension-installer": true
 		}
+	},
+	"require": {
+		"eluceo/ical": "^2.13"
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse --configuration=phpstan.neon --memory-limit=1G"
 	}
 }

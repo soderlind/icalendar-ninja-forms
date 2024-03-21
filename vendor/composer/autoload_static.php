@@ -8,6 +8,7 @@ class ComposerStaticInit544bdb086b461616280d36b3726b3c86
 {
     public static $files = array (
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
     );
 
@@ -21,6 +22,10 @@ class ComposerStaticInit544bdb086b461616280d36b3726b3c86
         'P' => 
         array (
             'PHPStan\\ExtensionInstaller\\' => 27,
+        ),
+        'E' => 
+        array (
+            'Eluceo\\iCal\\' => 12,
         ),
     );
 
@@ -40,6 +45,10 @@ class ComposerStaticInit544bdb086b461616280d36b3726b3c86
         'PHPStan\\ExtensionInstaller\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpstan/extension-installer/src',
+        ),
+        'Eluceo\\iCal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eluceo/ical/src',
         ),
     );
 

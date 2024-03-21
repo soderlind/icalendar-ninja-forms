@@ -15,7 +15,7 @@ use PHPStan\Reflection\FunctionReflection;
 use PHPStan\Type\Constant\ConstantBooleanType;
 use PHPStan\Type\Type;
 
-class WPErrorParameterDynamicFunctionReturnTypeExtension implements \PHPStan\Type\DynamicFunctionReturnTypeExtension
+class WpErrorParameterDynamicFunctionReturnTypeExtension implements \PHPStan\Type\DynamicFunctionReturnTypeExtension
 {
     private const SUPPORTED_FUNCTIONS = [
         'wp_insert_link' => [
@@ -142,8 +142,10 @@ class WPErrorParameterDynamicFunctionReturnTypeExtension implements \PHPStan\Typ
         // When called with a $wp_error parameter that isn't a constant boolean, return default type
         $type = $functionTypes['maybe'];
 
-        if ($wpErrorArgumentType instanceof ConstantBooleanType) {
-            $type = ($wpErrorArgumentType->getValue() === true) ? $functionTypes['true'] : $functionTypes['false'];
+        if ($wpErrorArgumentType->isTrue()->yes()) {
+            $type = $functionTypes['true'];
+        } elseif ($wpErrorArgumentType->isFalse()->yes()) {
+            $type = $functionTypes['false'];
         }
 
         return $this->typeStringResolver->resolve($type);

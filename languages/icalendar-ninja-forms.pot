@@ -1,41 +1,28 @@
-# Copyright (C) 2022 Per Søderlind
-# This file is distributed under the same license as the Ninja Forms - iCalendar plugin.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Ninja Forms - iCalendar 2.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/icalendar-ninja-form\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Ninja Forms - iCalendar\n"
+"POT-Creation-Date: 2024-03-20 20:34+0100\n"
+"PO-Revision-Date: 2024-03-20 20:32+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-06T10:31:24+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: icalendar-ninja-forms\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
 
-#. Plugin Name of the plugin
-msgid "Ninja Forms - iCalendar"
-msgstr ""
-
-#. Plugin URI of the plugin
-msgid "https://github.com/soderlind/icalendar-ninja-forms"
-msgstr ""
-
-#. Description of the plugin
-msgid "Add an Event to your Ninja Forms."
-msgstr ""
-
-#. Author of the plugin
-msgid "Per Søderlind"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://soderlind.no"
-msgstr ""
-
-#: src/Action.php:62
-#: src/Tags.php:41
+#: src/Action.php:62 src/Tags.php:41
 msgid "iCalendar"
 msgstr ""
 
@@ -88,32 +75,55 @@ msgid "Append the event URL to the calendar"
 msgstr ""
 
 #: src/Helper/Config.php:122
-msgid "Link text"
-msgstr ""
-
-#: src/Helper/Config.php:123
-msgid "More information"
+msgid ".. or add URL"
 msgstr ""
 
 #: src/Helper/Config.php:124
-#: src/Helper/Config.php:151
-msgid "Link text to iCAL for this event."
+msgid "Add URL."
 msgstr ""
 
-#: src/Helper/Config.php:136
-msgid "Organizer email"
+#: src/Helper/Config.php:134
+msgid "Event Venue"
 msgstr ""
 
 #: src/Helper/Config.php:141
+msgid "Add Venue"
+msgstr ""
+
+#: src/Helper/Config.php:145
+msgid "Add venue to the calendar"
+msgstr ""
+
+#: src/Helper/Config.php:150
+msgid "Address"
+msgstr ""
+
+#: src/Helper/Config.php:156
+msgid "Be as precise as possible"
+msgstr ""
+
+#: src/Helper/Config.php:212
+msgid "Organizer email"
+msgstr ""
+
+#: src/Helper/Config.php:217
 msgid "MANDATORY. If empty, the wp admin email address will be used."
 msgstr ""
 
-#: src/Helper/Config.php:148
+#: src/Helper/Config.php:224
 msgid "iCAL Link text"
 msgstr ""
 
-#: src/Helper/Config.php:149
+#: src/Helper/Config.php:225
 msgid "Add the event to your calendar"
+msgstr ""
+
+#: src/Helper/Config.php:227
+msgid "Link text to iCAL for this event."
+msgstr ""
+
+#: src/Helper/Pages.php:48
+msgid "Event page"
 msgstr ""
 
 #: src/Helper/Pages.php:49
@@ -124,12 +134,12 @@ msgstr ""
 msgid "Select the page that describes the event"
 msgstr ""
 
-#: src/Invitation.php:47
+#: src/Invitation.php:65
 msgid "Event invitation"
 msgstr ""
 
-#: src/Invitation.php:53
-msgid "The ninja forms icalendar setting time fields are deprecated. Please use upgrade the plugin to version 2.0.0 or later"
+#: src/Invitation.php:66
+msgid "Organizer"
 msgstr ""
 
 #: src/Tags.php:46
@@ -138,4 +148,24 @@ msgstr ""
 
 #: src/Tags.php:52
 msgid "URL"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Ninja Forms - iCalendar"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/soderlind/icalendar-ninja-forms"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add an Event to your Ninja Forms."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Per Søderlind"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://soderlind.no"
 msgstr ""

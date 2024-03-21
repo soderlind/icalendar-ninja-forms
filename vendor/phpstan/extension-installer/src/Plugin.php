@@ -10,15 +10,20 @@ use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
 use Composer\Util\Filesystem;
 use function array_keys;
+use function dirname;
 use function file_exists;
 use function file_put_contents;
+use function getcwd;
 use function in_array;
 use function is_file;
+use function ksort;
 use function md5;
 use function md5_file;
+use function sort;
 use function sprintf;
 use function strpos;
 use function var_export;
+use const DIRECTORY_SEPARATOR;
 
 final class Plugin implements PluginInterface, EventSubscriberInterface
 {
@@ -93,9 +98,18 @@ PHP;
 		}
 		$notInstalledPackages = [];
 		$installedPackages = [];
+		$ignoredPackages = [];
 
 		$data = [];
 		$fs = new Filesystem();
+		$ignore = [];
+
+		$packageExtra = $composer->getPackage()->getExtra();
+
+		if (isset($packageExtra['phpstan/extension-installer']['ignore'])) {
+			$ignore = $packageExtra['phpstan/extension-installer']['ignore'];
+		}
+
 		foreach ($composer->getRepositoryManager()->getLocalRepository()->getPackages() as $package) {
 			if (
 				$package->getType() !== 'phpstan-extension'
@@ -114,7 +128,21 @@ PHP;
 				}
 				continue;
 			}
-			$absoluteInstallPath = $installationManager->getInstallPath($package);
+
+			if (in_array($package->getName(), $ignore, true)) {
+				$ignoredPackages[] = $package->getName();
+				continue;
+			}
+
+			$installPath = $installationManager->getInstallPath($package);
+			if ($installPath === null) {
+				continue;
+			}
+
+			$absoluteInstallPath = $fs->isAbsolutePath($installPath)
+				? $installPath
+				: getcwd() . DIRECTORY_SEPARATOR . $installPath;
+
 			$data[$package->getName()] = [
 				'install_path' => $absoluteInstallPath,
 				'relative_install_path' => $fs->findShortestPath(dirname($generatedConfigFilePath), $absoluteInstallPath, true),
@@ -128,6 +156,7 @@ PHP;
 		ksort($data);
 		ksort($installedPackages);
 		ksort($notInstalledPackages);
+		sort($ignoredPackages);
 
 		$generatedConfigFileContents = sprintf(self::$generatedFileTemplate, var_export($data, true), var_export($notInstalledPackages, true));
 		file_put_contents($generatedConfigFilePath, $generatedConfigFileContents);
@@ -143,6 +172,10 @@ PHP;
 
 		foreach (array_keys($notInstalledPackages) as $name) {
 			$io->write(sprintf('> <comment>%s:</comment> not supported', $name));
+		}
+
+		foreach ($ignoredPackages as $name) {
+			$io->write(sprintf('> <comment>%s:</comment> ignored', $name));
 		}
 	}
 

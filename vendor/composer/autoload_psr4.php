@@ -10,4 +10,5 @@ return array(
     'Symfony\\Polyfill\\Php73\\' => array($vendorDir . '/symfony/polyfill-php73'),
     'Soderlind\\NinjaForms\\iCalendar\\' => array($baseDir . '/src'),
     'PHPStan\\ExtensionInstaller\\' => array($vendorDir . '/phpstan/extension-installer/src'),
+    'Eluceo\\iCal\\' => array($vendorDir . '/eluceo/ical/src'),
 );

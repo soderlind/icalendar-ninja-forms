@@ -8,8 +8,11 @@ declare(strict_types=1);
 define('ABSPATH', './');
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
+define('WP_PLUGIN_DIR', './');
 define('WPMU_PLUGIN_DIR', './');
 define('EMPTY_TRASH_DAYS', 30 * 86400);
+define('SCRIPT_DEBUG', false);
+define('WP_LANG_DIR', './');
 
 // Constants for expressing human-readable intervals.
 define('MINUTE_IN_SECONDS', 60);
@@ -54,3 +57,10 @@ define('EP_AUTHORS', 2048);
 define('EP_PAGES', 4096);
 define('EP_ALL_ARCHIVES', EP_DATE | EP_YEAR | EP_MONTH | EP_DAY | EP_CATEGORIES | EP_TAGS | EP_AUTHORS);
 define('EP_ALL', EP_PERMALINK | EP_ATTACHMENT | EP_ROOT | EP_COMMENTS | EP_SEARCH | EP_PAGES | EP_ALL_ARCHIVES);
+
+// Templating-related WordPress constants.
+// phpcs:ignore WordPress.WP.DiscouragedConstants.STYLESHEETPATHDeclarationFound
+define('STYLESHEETPATH', '/app/wp-content/themes/child/');
+// phpcs:ignore WordPress.WP.DiscouragedConstants.TEMPLATEPATHDeclarationFound
+define('TEMPLATEPATH', '/app/wp-content/themes/parent/');
+define('WP_DEFAULT_THEME', 'twentytwentythree');

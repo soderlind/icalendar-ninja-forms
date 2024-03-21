@@ -11,7 +11,6 @@ namespace SzepeViktor\PHPStan\WordPress;
 use PhpParser\Node\Expr\FuncCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\FunctionReflection;
-use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\Constant\ConstantArrayType;
 use PHPStan\Type\StringType;
 use PHPStan\Type\Type;
@@ -24,32 +23,34 @@ final class ShortcodeAttsDynamicFunctionReturnTypeExtension implements \PHPStan\
         return $functionReflection->getName() === 'shortcode_atts';
     }
 
-    public function getTypeFromFunctionCall(FunctionReflection $functionReflection, FuncCall $functionCall, Scope $scope): Type
+    // phpcs:ignore SlevomatCodingStandard.Functions.UnusedParameter
+    public function getTypeFromFunctionCall(FunctionReflection $functionReflection, FuncCall $functionCall, Scope $scope): ?Type
     {
         $args = $functionCall->getArgs();
         if ($args === []) {
-            return ParametersAcceptorSelector::selectFromArgs(
-                $scope,
-                $args,
-                $functionReflection->getVariants()
-            )->getReturnType();
+            return null;
         }
 
         $type = $scope->getType($args[0]->value);
 
-        if ($type instanceof ConstantArrayType) {
+        if (count($type->getConstantArrays()) === 0) {
+            return $type;
+        }
+
+        $returnType = [];
+        foreach ($type->getConstantArrays() as $constantArray) {
             // shortcode_atts values are coming from the defined defaults or from the actual string shortcode attributes
-            return new ConstantArrayType(
-                $type->getKeyTypes(),
+            $returnType[] = new ConstantArrayType(
+                $constantArray->getKeyTypes(),
                 array_map(
                     static function (Type $valueType): Type {
                         return TypeCombinator::union($valueType, new StringType());
                     },
-                    $type->getValueTypes()
+                    $constantArray->getValueTypes()
                 )
             );
         }
 
-        return $type;
+        return TypeCombinator::union(...$returnType);
     }
 }

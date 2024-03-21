@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ninja Forms - iCalendar\n"
+"POT-Creation-Date: 2024-03-20 20:34+0100\n"
+"PO-Revision-Date: 2024-03-21 18:08+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: src/Action.php:62 src/Tags.php:41
+msgid "iCalendar"
+msgstr "iCalendar"
+
+#: src/Helper/Config.php:41
+msgid "Event Date"
+msgstr "Dato"
+
+#: src/Helper/Config.php:44
+msgid "Select the fields that contain the event date"
+msgstr "Velg feltene som inneholder arrangementsdatoen"
+
+#: src/Helper/Config.php:50
+msgid "Start"
+msgstr "Start"
+
+#: src/Helper/Config.php:58
+msgid "End"
+msgstr "Slutt"
+
+#: src/Helper/Config.php:67
+msgid "Event Information"
+msgstr "Informasjon"
+
+#: src/Helper/Config.php:74
+msgid "Event title"
+msgstr "Tittel"
+
+#: src/Helper/Config.php:77
+msgid "MANDATORY. If empty, \"Event invitation\" will be used"
+msgstr "OBLIGATORISK. Hvis tom, vil \"Invitasjon til arrangement\" bli brukt"
+
+#: src/Helper/Config.php:82
+msgid "Add Message"
+msgstr "Legg til melding"
+
+#: src/Helper/Config.php:90
+msgid "Message"
+msgstr "Melding"
+
+#: src/Helper/Config.php:103
+msgid "Event URL"
+msgstr "Arrangements-URL"
+
+#: src/Helper/Config.php:110
+msgid "Append URL"
+msgstr "Legg til URL"
+
+#: src/Helper/Config.php:114
+msgid "Append the event URL to the calendar"
+msgstr "Legg til arrangements-URLen i kalenderen"
+
+#: src/Helper/Config.php:122
+msgid ".. or add URL"
+msgstr ".. eller legg til URL"
+
+#: src/Helper/Config.php:124
+msgid "Add URL."
+msgstr "Legg til URL."
+
+#: src/Helper/Config.php:134
+msgid "Event Venue"
+msgstr "Sted"
+
+#: src/Helper/Config.php:141
+msgid "Add Venue"
+msgstr "Legg til sted"
+
+#: src/Helper/Config.php:145
+msgid "Add venue to the calendar"
+msgstr "Legg til sted i kalenderen"
+
+#: src/Helper/Config.php:150
+msgid "Address"
+msgstr "Adresse"
+
+#: src/Helper/Config.php:156
+msgid "Be as precise as possible"
+msgstr "Vær så presis som mulig"
+
+#: src/Helper/Config.php:212
+msgid "Organizer email"
+msgstr "Arrangørens e-post"
+
+#: src/Helper/Config.php:217
+msgid "MANDATORY. If empty, the wp admin email address will be used."
+msgstr "OBLIGATORISK. Hvis tom, vil wp-admins e-postadresse bli brukt."
+
+#: src/Helper/Config.php:224
+msgid "iCAL Link text"
+msgstr "iCAL lenketekst"
+
+#: src/Helper/Config.php:225
+msgid "Add the event to your calendar"
+msgstr "Legg arrangementet til i kalenderen din"
+
+#: src/Helper/Config.php:227
+msgid "Link text to iCAL for this event."
+msgstr "Lenketekst til iCAL for dette arrangementet."
+
+#: src/Helper/Pages.php:48
+msgid "Event page"
+msgstr "Side"	
+
+#: src/Helper/Pages.php:49
+msgid "Select Post"
+msgstr "Velg innlegg"
+
+#: src/Helper/Pages.php:54
+msgid "Select the page that describes the event"
+msgstr "Velg siden som beskriver arrangementet"
+
+#: src/Invitation.php:65
+msgid "Event invitation"
+msgstr "Invitasjon til arrangement"
+
+#: src/Invitation.php:66
+msgid "Organizer"
+msgstr "Arrangør"
+
+#: src/Tags.php:46
+msgid "Link"
+msgstr "Lenke"
+
+#: src/Tags.php:52
+msgid "URL"
+msgstr "URL"
+
+#. Plugin Name of the plugin/theme
+msgid "Ninja Forms - iCalendar"
+msgstr "Ninja Forms - iCalendar"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/soderlind/icalendar-ninja-forms"
+msgstr "https://github.com/soderlind/icalendar-ninja-forms"
+
+#. Description of the plugin/theme
+msgid "Add an Event to your Ninja Forms."
+msgstr "Legg til et arrangement i dine Ninja Forms."
+
+#. Author of the plugin/theme
+msgid "Per Søderlind"
+msgstr "Per Søderlind"
+
+#. Author URI of the plugin/theme
+msgid "https://soderlind.no"
+msgstr "https://soderlind.no"
