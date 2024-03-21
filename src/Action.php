@@ -8,7 +8,7 @@
  * @license     GPL-2.0+
  */
 
-declare( strict_types = 1 );
+declare(strict_types=1);
 
 namespace Soderlind\NinjaForms\iCalendar;
 
@@ -66,9 +66,9 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 
 		$this->_settings = array_merge( $this->_settings, $settings );
 
-		if ( empty( $this->form_id ) && isset( $_POST['form'] ) ) { // phpcs:ignore
+		if ( empty ( $this->form_id ) && isset ( $_POST['form'] ) ) { // phpcs:ignore
 			$form_data = json_decode( $_POST['form'], true ); // phpcs:ignore
-			if ( isset( $form_data['id'] ) ) {
+			if ( isset ( $form_data['id'] ) ) {
 				$this->form_id = esc_html( $form_data['id'] );
 			}
 		}
@@ -85,11 +85,12 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 	 */
 	public function process( $action_settings, $form_id, $data ) {
 
-		if ( isset( $action_settings['icalendar_title'] ) ) {
+		if ( isset ( $action_settings['icalendar_title'] ) ) {
 
 			$ical_data = get_option( 'ical_form_' . $form_id, [] );
-			$uid       = uniqid();
-			if ( isset( $ical_data['icalendar_uid'] ) ) {
+
+			$uid = uniqid();
+			if ( isset ( $ical_data['icalendar_uid'] ) ) {
 				$uid = $ical_data['icalendar_uid'];
 			}
 
@@ -98,19 +99,19 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 			// using the + array union operator.
 			$ical_data = array_filter(
 				$action_settings,
-				function ( $key ) {
-					return( strpos( $key, 'icalendar_' ) !== false );
+				function ($key) {
+					return ( strpos( $key, 'icalendar_' ) !== false );
 				},
 				ARRAY_FILTER_USE_KEY
 			) + $ical_data;
 
 			$ical_data['icalendar_uid'] = $uid;
 
-			if ( ! isset( $ical_data['icalendar_organizer'] ) ) { /** @phpstan-ignore-line */
+			if ( ! isset ( $ical_data['icalendar_organizer'] ) ) {
 				$ical_data['icalendar_organizer'] = get_option( 'admin_email' );
 			}
 
-			$ical_link_form_id = get_option( 'ical_link_form_id', [] ) + [
+			$ical_link_form_id = get_option( 'ical_link_form_id', [] ) + [ 
 				$form_id => $uid,
 			];
 
@@ -121,3 +122,4 @@ class Action extends \NF_Abstracts_Action { // phpcs:ignore
 		return $data;
 	}
 }
+

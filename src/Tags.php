@@ -8,7 +8,7 @@
  * @license     GPL-2.0+
  */
 
-declare( strict_types = 1 );
+declare(strict_types=1);
 
 namespace Soderlind\NinjaForms\iCalendar;
 
@@ -39,14 +39,14 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 		parent::__construct(); //phpcs:ignore
 
 		$this->title      = esc_html__( 'iCalendar', 'icalendar-ninja-forms' );
-		$this->merge_tags = [
-			'icalendar_link' => [
+		$this->merge_tags = [ 
+			'icalendar_link' => [ 
 				'id'       => 'link',
 				'tag'      => '{ical:link}',
 				'label'    => esc_html__( 'Link', 'icalendar-ninja-forms' ),
 				'callback' => 'ical_link',
 			],
-			'icalendar_url'  => [
+			'icalendar_url'  => [ 
 				'id'       => 'url',
 				'tag'      => '{ical:url}',
 				'label'    => esc_html__( 'URL', 'icalendar-ninja-forms' ),
@@ -54,6 +54,13 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 			],
 		];
 	}
+
+	// public function replace( $subject ) {
+	// 	if ( is_null( $subject ) ) {
+	// 		return '';
+	// 	}
+	// 	return parent::replace( $subject );
+	// }
 
 	/**
 	 * Callback for ical:link} tag.
@@ -64,7 +71,7 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 		$options = get_option( 'ical_form_' . $this->form_id, [] );
 		$forms   = get_option( 'ical_link_form_id', [] );
 
-		if ( isset( $forms[ $this->form_id ], $options['icalendar_link_text'] ) ) {
+		if ( isset ( $forms[ $this->form_id ], $options['icalendar_link_text'] ) ) {
 			return sprintf( '<a href="%s/event-%s.ics">%s</a>', get_home_url(), untrailingslashit( $forms[ $this->form_id ] ), $options['icalendar_link_text'] );
 		} else {
 			return '';
@@ -78,8 +85,8 @@ class Tags extends \NF_Abstracts_MergeTags { //phpcs:ignore
 	 */
 	public function ical_url() {
 		$forms = get_option( 'ical_link_form_id' );
-		if ( isset( $forms[ $this->form_id ] ) ) {
-			return sprintf( '%s/event-%s.ics"', get_home_url(), untrailingslashit( $forms[ $this->form_id ] ) );
+		if ( isset ( $forms[ $this->form_id ] ) ) {
+			return sprintf( '%s/event-%s.ics', get_home_url(), untrailingslashit( $forms[ $this->form_id ] ) );
 		} else {
 			return '';
 		}

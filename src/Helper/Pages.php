@@ -8,7 +8,7 @@
  * @license     GPL-2.0+
  */
 
-declare( strict_types = 1 );
+declare(strict_types=1);
 
 namespace Soderlind\NinjaForms\iCalendar\Helper;
 
@@ -21,9 +21,9 @@ class Pages {
 	 *
 	 * @return array<mixed>   Event list setting
 	 */
-	public static function get() : array {
+	public static function get(): array {
 		$events = get_posts(
-			[
+			[ 
 				'post_type'   => 'page',
 				'post_status' => 'publish',
 				'numberposts' => -1,
@@ -33,26 +33,26 @@ class Pages {
 		$options = [];
 		$value   = '';
 		if ( $events ) {
-			foreach ( $events as  $event ) {
+			foreach ( $events as $event ) {
 				if ( '' === $value ) {
 					$value = $event->ID;
 				}
-				$options[] = [
+				$options[] = [ 
 					'label' => $event->post_title,
 					'value' => $event->ID,
 				];
 			}
-			return [
+			return [ 
 				'name'        => 'icalendar_post_id',
 				'type'        => 'select',
-				'label'       => __( 'Event page', 'date-range-ninja-forms' ),
+				'label'       => __( 'Event page', 'icalendar-ninja-forms' ),
 				'placeholder' => __( 'Select Post', 'icalendar-ninja-forms' ),
-				'width'       => 'one-half',
+				// 'width'       => 'one-half',
 				'group'       => 'primary',
 				'options'     => $options,
 				'value'       => $value,
 				'help'        => __( 'Select the page that describes the event', 'icalendar-ninja-forms' ),
-				'deps'        => [
+				'deps'        => [ 
 					'icalendar_append_url' => 1,
 				],
 
