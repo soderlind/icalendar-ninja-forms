@@ -11,44 +11,62 @@ namespace SzepeViktor\PHPStan\WordPress;
 use PhpParser\Node\Expr\FuncCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\FunctionReflection;
-use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\Type;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\Constant\ConstantBooleanType;
 use PHPStan\Type\TypeCombinator;
-use PHPStan\Type\Constant\ConstantStringType;
 
 class GetListTableDynamicFunctionReturnTypeExtension implements \PHPStan\Type\DynamicFunctionReturnTypeExtension
 {
+    private const CORE_CLASSES = [
+        'WP_Posts_List_Table',
+        'WP_Media_List_Table',
+        'WP_Terms_List_Table',
+        'WP_Users_List_Table',
+        'WP_Comments_List_Table',
+        'WP_Post_Comments_List_Table',
+        'WP_Links_List_Table',
+        'WP_Plugin_Install_List_Table',
+        'WP_Themes_List_Table',
+        'WP_Theme_Install_List_Table',
+        'WP_Plugins_List_Table',
+        'WP_Application_Passwords_List_Table',
+        'WP_MS_Sites_List_Table',
+        'WP_MS_Users_List_Table',
+        'WP_MS_Themes_List_Table',
+        'WP_Privacy_Data_Export_Requests_List_Table',
+        'WP_Privacy_Data_Removal_Requests_List_Table',
+    ];
+
     public function isFunctionSupported(FunctionReflection $functionReflection): bool
     {
         return $functionReflection->getName() === '_get_list_table';
     }
 
     // phpcs:ignore SlevomatCodingStandard.Functions.UnusedParameter
-    public function getTypeFromFunctionCall(FunctionReflection $functionReflection, FuncCall $functionCall, Scope $scope): Type
+    public function getTypeFromFunctionCall(FunctionReflection $functionReflection, FuncCall $functionCall, Scope $scope): ?Type
     {
         $args = $functionCall->getArgs();
 
         // Called without $class argument
         if (count($args) < 1) {
-            return new ConstantBooleanType(false);
+            return null;
         }
 
         $argumentType = $scope->getType($args[0]->value);
 
         // When called with a $class that isn't a constant string, return default return type
-        if (! $argumentType instanceof ConstantStringType) {
-            return ParametersAcceptorSelector::selectFromArgs(
-                $scope,
-                $args,
-                $functionReflection->getVariants()
-            )->getReturnType();
+        if (count($argumentType->getConstantStrings()) === 0) {
+            return null;
         }
 
-        return TypeCombinator::union(
-            new ObjectType($argumentType->getValue()),
-            new ConstantBooleanType(false)
-        );
+        $types = [];
+        foreach ($argumentType->getConstantStrings() as $constantString) {
+            $types[] = in_array($constantString->getValue(), self::CORE_CLASSES, true)
+                ? new ObjectType($constantString->getValue())
+                : new ConstantBooleanType(false);
+        }
+
+        return TypeCombinator::union(...$types);
     }
 }

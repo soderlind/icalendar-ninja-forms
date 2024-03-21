@@ -1,7 +1,5 @@
 <?php
 
-// phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-
 /**
  * Set return type of get_object_taxonomies().
  */
@@ -13,13 +11,12 @@ namespace SzepeViktor\PHPStan\WordPress;
 use PhpParser\Node\Expr\FuncCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\FunctionReflection;
-use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\Type;
 use PHPStan\Type\ArrayType;
 use PHPStan\Type\IntegerType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\StringType;
-use PHPStan\Type\Constant\ConstantStringType;
+use PHPStan\Type\TypeCombinator;
 
 class GetObjectTaxonomiesDynamicFunctionReturnTypeExtension implements \PHPStan\Type\DynamicFunctionReturnTypeExtension
 {
@@ -30,8 +27,11 @@ class GetObjectTaxonomiesDynamicFunctionReturnTypeExtension implements \PHPStan\
 
     /**
      * @see https://developer.wordpress.org/reference/functions/get_object_taxonomies/
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
-    public function getTypeFromFunctionCall(FunctionReflection $functionReflection, FuncCall $functionCall, Scope $scope): Type
+    // phpcs:ignore SlevomatCodingStandard.Functions.UnusedParameter
+    public function getTypeFromFunctionCall(FunctionReflection $functionReflection, FuncCall $functionCall, Scope $scope): ?Type
     {
         $args = $functionCall->getArgs();
 
@@ -43,21 +43,23 @@ class GetObjectTaxonomiesDynamicFunctionReturnTypeExtension implements \PHPStan\
         $argumentType = $scope->getType($args[1]->value);
 
         // When called with an $output that isn't a constant string, return default return type
-        if (! $argumentType instanceof ConstantStringType) {
-            return ParametersAcceptorSelector::selectFromArgs(
-                $scope,
-                $args,
-                $functionReflection->getVariants()
-            )->getReturnType();
+        if (count($argumentType->getConstantStrings()) === 0) {
+            return null;
         }
 
         // Called with a constant string $output
-        switch ($argumentType->getValue()) {
-            case 'objects':
-                return new ArrayType(new StringType(), new ObjectType('WP_Taxonomy'));
-            case 'names':
-            default:
-                return new ArrayType(new IntegerType(), new StringType());
+        $returnType = [];
+        foreach ($argumentType->getConstantStrings() as $constantString) {
+            switch ($constantString->getValue()) {
+                case 'objects':
+                    $returnType[] = new ArrayType(new StringType(), new ObjectType('WP_Taxonomy'));
+                    break;
+                case 'names':
+                default:
+                    $returnType[] = new ArrayType(new IntegerType(), new StringType());
+            }
         }
+
+        return TypeCombinator::union(...$returnType);
     }
 }

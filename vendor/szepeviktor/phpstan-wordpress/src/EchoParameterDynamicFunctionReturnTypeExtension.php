@@ -23,19 +23,29 @@ class EchoParameterDynamicFunctionReturnTypeExtension implements \PHPStan\Type\D
      * Function name and position of `$echo` parameter.
      */
     private const SUPPORTED_FUNCTIONS = [
+        'checked' => 2,
         'comment_class' => 3,
+        'disabled' => 2,
         'edit_term_link' => 4,
         'get_calendar' => 1,
+        'menu_page_url' => 1,
         'next_posts' => 1,
         'post_type_archive_title' => 1,
         'previous_posts' => 0,
+        'selected' => 2,
         'single_cat_title' => 1,
+        'single_month_title' => 1,
         'single_post_title' => 1,
         'single_tag_title' => 1,
         'single_term_title' => 1,
         'the_date' => 3,
         'the_modified_date' => 3,
+        'the_title' => 2,
         'wp_loginout' => 1,
+        'wp_nonce_field' => 3,
+        'wp_original_referer_field' => 0,
+        'wp_readonly' => 2,
+        'wp_referer_field' => 0,
         'wp_register' => 2,
         'wp_title' => 1,
     ];
@@ -66,15 +76,47 @@ class EchoParameterDynamicFunctionReturnTypeExtension implements \PHPStan\Type\D
             $echoArgumentType = $scope->getType($args[$functionParameter]->value);
         }
 
-        if ($echoArgumentType instanceof ConstantBooleanType) {
-            return ($echoArgumentType->getValue() === false)
-                ? new StringType()
-                : new VoidType();
+        if ($echoArgumentType->isTrue()->yes()) {
+            return self::getEchoTrueReturnType($name);
+        }
+        if ($echoArgumentType->isFalse()->yes()) {
+            return self::getEchoFalseReturnType($name);
         }
 
         return TypeCombinator::union(
-            new StringType(),
-            new VoidType()
+            self::getEchoFalseReturnType($name),
+            self::getEchoTrueReturnType($name)
         );
+    }
+
+    protected static function getEchoTrueReturnType(string $name): Type
+    {
+        if ($name === 'single_month_title') {
+            return TypeCombinator::union(
+                new VoidType(),
+                new ConstantBooleanType(false)
+            );
+        }
+
+        return new VoidType();
+    }
+
+    protected static function getEchoFalseReturnType(string $name): Type
+    {
+        if ($name === 'single_month_title') {
+            return TypeCombinator::union(
+                new StringType(),
+                new ConstantBooleanType(false)
+            );
+        }
+
+        if ($name === 'the_title') {
+            return TypeCombinator::union(
+                new StringType(),
+                new VoidType()
+            );
+        }
+
+        return new StringType();
     }
 }
