@@ -8,7 +8,7 @@
  * @license     GPL-2.0+
  */
 
-declare( strict_types = 1 );
+declare(strict_types=1);
 
 namespace Soderlind\NinjaForms\iCalendar;
 
@@ -29,7 +29,7 @@ final class iCalendar {//phpcs:ignore
 	 *
 	 * @return object
 	 */
-	public static function instance() : object {
+	public static function instance(): object {
 		if ( ! ( self::$instance instanceof iCalendar ) ) {
 			self::$instance = new iCalendar();
 			self::$instance->init();
@@ -49,7 +49,11 @@ final class iCalendar {//phpcs:ignore
 		add_filter( 'ninja_forms_register_merge_tags', [ $this, 'register_tag' ], 20 );
 		add_action( 'nf_admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 		add_filter( 'ninja_forms_validate_fields', [ $this, 'set_form_id_in_merge_tag' ], 90, 2 );
-		add_action( 'init', [ $this, 'load_textdomain' ] );
+		add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
+		add_filter( 'ninja_forms_action_email_attachments', [ $this, 'attach_catendar' ], 10, 3 );
+
+		Helper\Hooks::wp_mail();
+
 	}
 
 	/**
@@ -59,7 +63,7 @@ final class iCalendar {//phpcs:ignore
 	 *
 	 * @return array<string,object>
 	 */
-	public function register_actions( array $actions ) :array {
+	public function register_actions( array $actions ): array {
 		$actions['icalendar'] = new Action();
 		return $actions;
 	}
@@ -71,7 +75,7 @@ final class iCalendar {//phpcs:ignore
 	 *
 	 * @return array<string,object>
 	 */
-	public function register_tag( array $tags ) : array {
+	public function register_tag( array $tags ): array {
 		$tags['icalendar'] = new Tags();
 		return $tags;
 	}
@@ -92,6 +96,39 @@ final class iCalendar {//phpcs:ignore
 	}
 
 	/**
+	 * Attach calendar to email.
+	 *
+	 * @param array<string> $attachments Attachments.
+	 * @param array<string> $data Data.
+	 * @param array<string> $settings Settings.
+	 *
+	 * @return array<string>
+	 */
+	public function attach_catendar( array $attachments, array $data, array $settings ): array {
+		$form_id = $data['form_id'];
+		$ical    = get_option( 'ical_form_' . $form_id );
+
+		if ( isset ( $ical['icalendar_attach_ical'] ) && '1' !== $ical['icalendar_attach_ical'] ) {
+			return $attachments;
+		}
+		// $calendar_file = sprintf( '%s-%s.ics', sanitize_title( $ical['icalendar_title'] ), untrailingslashit( $ical['icalendar_uid'] ) );
+		$calendar_file = sprintf( 'event-%s.ics', untrailingslashit( $ical['icalendar_uid'] ) );
+		$calendar_url  = sprintf( '%s/%s', get_home_url(), $calendar_file );
+
+		$calendar_attachment = [ 
+			'string'      => file_get_contents( $calendar_url ), // String attachment data (required)
+			'filename'    => $calendar_file, // Name of the attachment (required)
+			'encoding'    => 'base64', // File encoding (defaults to 'base64')
+			'type'        => 'text/calendar', // File MIME type (if left unspecified, PHPMailer will try to work it out from the file name)
+			'disposition' => 'attachment', // Disposition to use (defaults to 'attachment')
+		];
+
+		$attachments[] = $calendar_attachment;
+
+		return $attachments;
+	}
+
+	/**
 	 * Enqueue scripts.
 	 *
 	 * @return void
@@ -105,7 +142,7 @@ final class iCalendar {//phpcs:ignore
 	 *
 	 * @return void
 	 */
-	public function load_textdomain() : void {
-		load_plugin_textdomain( 'icalendar-ninja-forms', false, \plugin_dir_path( ICALENDAR_FILE ) . 'languages' );
+	public function load_textdomain(): void {
+		load_plugin_textdomain( 'icalendar-ninja-forms', false, basename( dirname( ICALENDAR_FILE ) ) . '/languages' );
 	}
 }
