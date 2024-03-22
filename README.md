@@ -92,7 +92,7 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
   - multiline message
   - link to event page
   - add event location, inclusive latitude and longitude
-  - attach calendar to email
+  - attach calendar to email confirmation
 - Update translation file.
   - Add Norwegian translation
 - Update dependencies
