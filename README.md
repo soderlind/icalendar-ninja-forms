@@ -58,21 +58,27 @@ See example below
 
 ```
 BEGIN:VCALENDAR
+PRODID:-//eluceo/ical//2.0/EN
 VERSION:2.0
-PRODID:-//ZContent.net//ZapCalLib 1.0//EN
 CALSCALE:GREGORIAN
-METHOD:PUBLISH
 BEGIN:VEVENT
+UID:1f09c1aca9cca3bcee4b588ab0bc624d
+DTSTAMP:20240322T082413Z
 SUMMARY:Launch Party!
-DTSTART:20210606T160000
-DTEND:20210606T230000
-ORGANIZER:per@soderlind.no
-UID:icalendar-ninja-forms-606e30a0d624e
-DTSTAMP:20210407T234034
-DESCRIPTION:Welcome to our Launch Party!!\nMore information at: http://party.local/events/launch-party/
+DESCRIPTION:Welcome to our Launch Party!
+URL:http://domain.local/party/
+DTSTART:20240606T090000Z
+DTEND:20240606T150000Z
+LOCATION:Vippa\, Oslo
+GEO:59.901864;10.741167
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Vippa\, Oslo;X-APPLE-RADIUS
+ =49;X-TITLE=:geo:59.901864,10.741167
+ORGANIZER:mailto:party@domain.local
 END:VEVENT
 END:VCALENDAR
 ```
+
+<img src=".wordpress-org/calendar-example.png">
 
 ## See also
 
