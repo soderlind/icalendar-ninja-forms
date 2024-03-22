@@ -159,7 +159,11 @@ I've created a [date range](https://github.com/soderlind/date-range-ninja-forms)
 
 ## Credits
 
-iCalendar for Ninja Forms uses the [Zap Calendar iCalendar Library](https://github.com/zcontent/icalendar). The Zap Calendar iCalendar Library has a GNU GPLv3 licence and is Copyright (C) 2006 - 2017 by [Dan Cogliano](https://zcontent.net/).
+iCalendar for Ninja Forms uses the following third-party resources:
+
+- [Eluceo\iCal](https://github.com/markuspoerschke/iCal) by Markus Poerschke, licensed under the MIT License.
+- [Openstreetmap](https://www.openstreetmap.org) for the calendar location.
+- [Enhanced WP Mail Attachments](https://gist.github.com/thomasfw/5df1a041fd8f9c939ef9d88d887ce023/) by Thomas F. Watson.
 
 ## Copyright and License
 
