@@ -21,7 +21,7 @@ final class GeneratedConfig
         0 => 'extension.neon',
       ),
     ),
-    'version' => 'v1.3.3',
+    'version' => 'v1.3.4',
   ),
 );
 
